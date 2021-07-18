@@ -1,8 +1,3 @@
-![diagramme](https://user-images.githubusercontent.com/29457062/125112494-84804c80-e0e7-11eb-8926-010f2236f7ac.png)
-
-
-
-
 Afin de demarer le projet correctement si ce n'est pas le cas, veuillez installer la version JavaSE-11.
 
 Verifier le java build path dans votre IDE click droit sur le projet -> preperties -> java build path -> libraries -> JRE system librtaries, La version doit etre la JavaSE11.
@@ -18,3 +13,6 @@ Compiler l'application.
 Enjoy !!!
 
 Diagramme UML du projet
+
+
+![diagramme](https://user-images.githubusercontent.com/29457062/125112494-84804c80-e0e7-11eb-8926-010f2236f7ac.png)
