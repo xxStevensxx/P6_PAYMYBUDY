@@ -1,5 +1,4 @@
-![PayMyBudy_UML](https://user-images.githubusercontent.com/29457062/126063706-35e6ce0b-7716-43ea-a705-614058b82466.png)
-
+![diagramme](https://user-images.githubusercontent.com/29457062/125112494-84804c80-e0e7-11eb-8926-010f2236f7ac.png)
 
 
 
