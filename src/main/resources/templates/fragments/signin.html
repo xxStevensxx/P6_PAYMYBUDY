@@ -1,5 +1,5 @@
 <!-- Login  -->
-<form th:fragment="signin" th:action="@{/login}" th:object="${FormLogin}" method="post">
+<form th:fragment="signin" th:action="@{/signin}" method="post">
 <div class="container">
 <div class="formBox">
 <div>
@@ -7,13 +7,11 @@
 </div>
 <div id="email" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input oninput="this.value = this.value.toLowerCase()" th:field="*{email}" type="email" name="user" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-   <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+  <input name="username" oninput="this.value = this.value.toLowerCase()"class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
 </div>
   <div id="psw" class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input th:field="*{password}" name="password" type="password" class="form-control" id="exampleInputPassword1">
-    <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+    <input name="password" type="password" class="form-control" id="exampleInputPassword1">
   </div>
        <div align="center"  class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('global')}" th:each="err : ${#fields.errors('global')}" th:text="${err}"></div>  
   <div class="form-check">

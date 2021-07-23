@@ -20,7 +20,7 @@
           <a class="nav-link" th:if="${session.Email != null}" th:href="@{/contact}">Contact</a>
         </li>
            <li class="nav-item">
-          <a  class="nav-link" th:if="${session.Email == null}" th:href="@{/login}">LogIn</a>
+          <a  class="nav-link" th:if="${session.Email == null}" th:href="@{/signin}">LogIn</a>
           <a  class="nav-link" th:if="${session.Email != null}" th:href="@{/logout}">LogOut</a>
         </li>
        <!--  <li class="nav-item">
