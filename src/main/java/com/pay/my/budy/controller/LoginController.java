@@ -22,5 +22,5 @@ public class LoginController {
 		return "/layouts/index"; 
 		
 	}
-
 }
+
