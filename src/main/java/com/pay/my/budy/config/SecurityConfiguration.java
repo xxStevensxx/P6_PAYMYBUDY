@@ -1,8 +1,10 @@
 package com.pay.my.budy.config;
 
+
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -14,8 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
-//	@Autowired
-//	DataSource dataSource;
+	@Autowired
+	DataSource dataSource;
 
 	
 	@Override
@@ -33,12 +35,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
-			.antMatchers("/", "/home", "/transfert", "/contact", "/logout").authenticated()
+			.antMatchers("/", "/home", "/transfert", "/contact "," /logout ").authenticated()
 			.and()
 			.formLogin()
 			.loginPage("/signin")
 			.permitAll();
-		
+
 	}
 	
 	
@@ -48,7 +50,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers("/resources/**");
 		
 	}
-	
 	
 	
 	@Bean
