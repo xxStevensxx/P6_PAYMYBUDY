@@ -27,9 +27,9 @@ public class User {
 
 	public User() {}
 	
-	public User(String firstname, String name, LocalDate birthdate, String address, String email,
+	public User(String username, String name, LocalDate birthdate, String address, String email,
 			String password, List<Relationship> friends, double moneyAvailable) {
-		this.firstName = firstname;
+		this.username = username;
 		this.name = name;
 		this.birthDate = birthdate;
 		this.address = address;
@@ -44,8 +44,8 @@ public class User {
 	@Column(name = "id")
 	private int id;
 
-	@Column(name="firstname")
-	private String firstName;
+	@Column(name="username")
+	private String username;
 	
 	@Column(name="name")
 	private String name;
@@ -80,12 +80,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getusername() {
+		return username;
 	}
 
-	public void setFisrtName(String firstName) {
-		this.firstName = firstName;
+	public void setFisrtName(String username) {
+		this.username = username;
 	}
 
 	public String getName() {
