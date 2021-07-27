@@ -20,6 +20,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	DataSource dataSource;
 	
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
