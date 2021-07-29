@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.pay.my.budy.model.User;
+import com.pay.my.budy.repository.UserRepository;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
@@ -18,7 +19,7 @@ public class MyUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
-		User user = user.findByUsername(username);
+		User user = userRepository.findByUserName(username);
 		
 		if (user == null) {
 			throw new UsernameNotFoundException(username);	
