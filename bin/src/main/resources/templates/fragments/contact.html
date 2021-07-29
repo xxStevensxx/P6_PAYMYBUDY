@@ -1,0 +1,34 @@
+<!-- Contact  -->
+<div th:fragment="contact" th:object="${Connections}" class="container">
+<table class="table table-striped">
+  <caption>Connections</caption>
+  <thead class="thead">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="Connection, state : ${Connections}">
+      <th scope="row" th:text="${state.count}">number</th>
+      <td th:text="Connection"></td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+<!--     <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr> -->
+  </tbody>
+</table>
+</div>
