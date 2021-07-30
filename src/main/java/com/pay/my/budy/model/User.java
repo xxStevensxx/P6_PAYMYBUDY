@@ -2,6 +2,7 @@ package com.pay.my.budy.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,12 +18,14 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
 @Table(name="users")
-public class User {
+public class User implements UserDetails {
 	
 
 	public User() {}
@@ -65,6 +68,10 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
+	
+	private int active;
+	
+	
 	@OneToMany(cascade = CascadeType.ALL, 
 							orphanRemoval = true,
 							fetch = FetchType.EAGER,
@@ -80,7 +87,8 @@ public class User {
 		this.id = id;
 	}
 
-	public String getusername() {
+	@Override
+	public String getUsername() {
 		return username;
 	}
 
@@ -134,6 +142,50 @@ public class User {
 
 	public void setFriends(List<Relationship> friends) {
 		this.friends = friends;
+	}
+	
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
