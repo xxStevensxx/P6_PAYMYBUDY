@@ -22,10 +22,11 @@ public class MyUserDetailsService implements UserDetailsService {
 		User user = userRepository.findByUserName(username);
 		
 		if (user == null) {
+			
 			throw new UsernameNotFoundException(username);	
 		}
 		
-			return new MyUserPrincipal(user);
+				return user;
 	}
 
 }
