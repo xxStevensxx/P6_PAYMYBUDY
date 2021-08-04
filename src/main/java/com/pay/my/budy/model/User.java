@@ -2,6 +2,7 @@ package com.pay.my.budy.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,12 +18,14 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
 @Table(name="users")
-public class User {
+public class User implements UserDetails {
 	
 
 	public User() {}
@@ -43,18 +46,23 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
+  
 
 	@Column(name="username")
 	private String username;
 	
+	
 	@Column(name="name")
 	private String name;
+	
 	
 	@Column(name="birthdate")
 	private LocalDate birthDate;
 	
+	
 	@Column(name="address")
 	private String address;
+	
 	
 	@Email
 	@Column(name="email")
@@ -64,6 +72,7 @@ public class User {
 	@Size(min = 2, max = 350, message = "Password must be between 2 and * caracteres")
 	@Column(name="password")
 	private String password;
+	
 	
 	@OneToMany(cascade = CascadeType.ALL, 
 							orphanRemoval = true,
@@ -80,7 +89,8 @@ public class User {
 		this.id = id;
 	}
 
-	public String getusername() {
+	@Override
+	public String getUsername() {
 		return username;
 	}
 
@@ -134,6 +144,37 @@ public class User {
 
 	public void setFriends(List<Relationship> friends) {
 		this.friends = friends;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 
 }
