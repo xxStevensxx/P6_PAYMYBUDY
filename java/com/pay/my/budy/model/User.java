@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component;
 @Table(name="users")
 public class User implements UserDetails {
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 6744559497724848173L;
 
 	public User() {}
 	
@@ -82,9 +82,7 @@ public class User implements UserDetails {
 	@JoinColumn(name = "friend")
 	private List<Relationship> friends = new ArrayList<Relationship>();
 
-
-	private int active;
-
+		 	
 	public long getId() {
 		return id;
 	}
@@ -149,15 +147,6 @@ public class User implements UserDetails {
 	public void setFriends(List<Relationship> friends) {
 		this.friends = friends;
 	}
-	
-	public int getActive() {
-		return active;
-	}
-
-	public void setActive(int active) {
-		this.active = active;
-	}
-
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
