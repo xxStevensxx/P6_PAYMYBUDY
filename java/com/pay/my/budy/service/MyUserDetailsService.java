@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.pay.my.budy.model.MyUserPrincipal;
 import com.pay.my.budy.model.User;
 import com.pay.my.budy.repository.UserRepository;
 
