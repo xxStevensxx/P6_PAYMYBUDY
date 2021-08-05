@@ -27,6 +27,7 @@ import org.springframework.stereotype.Component;
 @Table(name="users")
 public class User implements UserDetails {
 	
+	private static final long serialVersionUID = 1L;
 
 	public User() {}
 	
