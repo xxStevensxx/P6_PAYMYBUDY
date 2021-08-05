@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component;
 @Table(name="users")
 public class User implements UserDetails {
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 6744559497724848173L;
 
 	public User() {}
 	
@@ -82,7 +82,7 @@ public class User implements UserDetails {
 	@JoinColumn(name = "friend")
 	private List<Relationship> friends = new ArrayList<Relationship>();
 
-	
+		 	
 	public long getId() {
 		return id;
 	}
