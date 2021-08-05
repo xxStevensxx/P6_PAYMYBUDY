@@ -72,7 +72,7 @@ public class User implements UserDetails {
 	@Size(min = 2, max = 350, message = "Password must be between 2 and * caracteres")
 	@Column(name="password")
 	private String password;
-	
+		
 	
 	@OneToMany(cascade = CascadeType.ALL, 
 							orphanRemoval = true,
@@ -80,6 +80,9 @@ public class User implements UserDetails {
 							targetEntity = Relationship.class)
 	@JoinColumn(name = "friend")
 	private List<Relationship> friends = new ArrayList<Relationship>();
+
+
+	private int active;
 
 	public long getId() {
 		return id;
@@ -145,6 +148,15 @@ public class User implements UserDetails {
 	public void setFriends(List<Relationship> friends) {
 		this.friends = friends;
 	}
+	
+	public int getActive() {
+		return active;
+	}
+
+	public void setActive(int active) {
+		this.active = active;
+	}
+
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
