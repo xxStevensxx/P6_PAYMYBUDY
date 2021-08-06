@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -28,8 +29,9 @@ import org.springframework.stereotype.Component;
 public class User implements UserDetails {
 	
 	private static final long serialVersionUID = 6744559497724848173L;
-
+	
 	public User() {}
+	
 	
 	public User(String username, String name, LocalDate birthdate, String address, String email,
 			String password, List<Relationship> friends, double moneyAvailable) {
@@ -81,6 +83,9 @@ public class User implements UserDetails {
 							targetEntity = Relationship.class)
 	@JoinColumn(name = "friend")
 	private List<Relationship> friends = new ArrayList<Relationship>();
+	
+	
+	private List<Authority> authorities;
 
 		 	
 	public long getId() {
@@ -150,32 +155,27 @@ public class User implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
+		return authorities;
 	}
 
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
