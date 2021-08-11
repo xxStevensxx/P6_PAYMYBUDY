@@ -18,7 +18,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -84,7 +83,7 @@ public class User implements UserDetails {
 	@JoinColumn(name = "friend")
 	private List<Relationship> friends = new ArrayList<Relationship>();
 	
-	
+	@OneToMany(mappedBy = "username")
 	private List<Authority> authorities;
 
 		 	
