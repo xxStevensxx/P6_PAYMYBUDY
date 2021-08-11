@@ -2,6 +2,8 @@ package com.pay.my.budy.config;
 
 
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,17 +20,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	private JpaConfig dataSource;
+	private DataSource dataSource;
 
 	
 	@Autowired
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 		
 		auth.jdbcAuthentication()
-			.dataSource(dataSource.getDataSource())
+			.dataSource(dataSource)
 			.passwordEncoder(passwordEncoder())
-			.usersByUsernameQuery("select username, password, enabled from users where username = ?")
-			.authoritiesByUsernameQuery("select username, role from users where username = ?");
+			.usersByUsernameQuery("select username, password, 'true' from users where username = ?")
+			.authoritiesByUsernameQuery("select username, authority from authorities where username = ?");
 				
 	}
 	
@@ -40,7 +42,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.antMatchers("/", "/home", "/transfert", "/contact "," /logout ").authenticated()
 			.and()
 			.formLogin()
-			.loginPage("/signin")
+			//.loginPage("/signin")
 			.permitAll();
 
 	}
