@@ -17,6 +17,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `authorities`
+--
+
+DROP TABLE IF EXISTS `authorities`;
+CREATE TABLE IF NOT EXISTS `authorities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50),
+  `authority` varchar(50),
+   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `authorities`
+--
+
+INSERT INTO `authorities` (`id`, `username`, `authority`) VALUES
+(1, 'test', 'ADMIN');
+
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `bankaccounts`
 --
 
@@ -93,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `transactions` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(50),
+  `username` varchar(50),
   `name` varchar(50),
   `birthdate` date,
   `address` varchar(100),
@@ -101,6 +123,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(100),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `name`, `birthdate`, `address`, `email`, `password`) VALUES
+(1, 'test', 'test', NULL, NULL, 'test@test', 'abc123'),
+(2, 'test', NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Contraintes pour les tables déchargées
