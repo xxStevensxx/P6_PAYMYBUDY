@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 public class TransfertController {
 	
-	@GetMapping
+	@GetMapping(value = "/transfert")
 	public String transfertController() {
 		
 		return "/layouts/transfert";
