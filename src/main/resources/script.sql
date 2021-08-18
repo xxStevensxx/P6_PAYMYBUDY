@@ -1,4 +1,4 @@
--- 
+--
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -70,27 +70,6 @@ CREATE TABLE IF NOT EXISTS `relationships` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `role`
---
-
-DROP TABLE IF EXISTS `role`;
-CREATE TABLE IF NOT EXISTS `role` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(5),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `role`
---
-
-INSERT INTO `role` (`id`, `name`) VALUES
-(1, 'ADMIN'),
-(2, 'USER');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `transactions`
 --
 
@@ -129,8 +108,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `name`, `birthdate`, `address`, `email`, `password`) VALUES
-(1, 'test', 'test', NULL, NULL, 'test@test', 'abc123'),
-(2, 'test', NULL, NULL, NULL, NULL, NULL);
+(1, 'test', 'test', NULL, NULL, 'test@test', '$2y$10$jWvX8H.8XzHZkfZdP5pOY.1jXkH2HsLPCMTnINYCTtYL76F0saeHS');
 
 --
 -- Contraintes pour les tables déchargées
