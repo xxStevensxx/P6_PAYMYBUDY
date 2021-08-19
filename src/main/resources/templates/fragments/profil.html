@@ -5,21 +5,22 @@
 <div>
 <h2 id="pmBudy2">Profil</h2>
 </div>
+<div id="nom" class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Nom</label>
+  <input name="" class="form-control" id="exampleFormControlInput1" placeholder="Nom">
+</div>
 <div id="prenom" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Prénom</label>
   <input name="name" class="form-control" id="exampleFormControlInput1" placeholder="prénom">
-</div>
-<div id="address" class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Adresse</label>
-  <input name="adr" class="form-control" id="exampleFormControlInput1" placeholder="rue de paris">
-</div><div id="address" class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Adresse</label>
-  <input name="adr" class="form-control" id="exampleFormControlInput1" placeholder="rue de paris">
 </div>
   <div id="birthdate" class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Date de naissance</label>
     <input name="birthdate" type="date" class="form-control" id="exampleInputPassword1">
   </div>
+<div id="address" class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Adresse</label>
+  <input name="adr" class="form-control" id="exampleFormControlInput1" placeholder="rue de paris">
+</div>
        <div align="center"  class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('global')}" th:each="err : ${#fields.errors('global')}" th:text="${err}"></div>
 <div class="btn-container">
     <button class="btn btn-primary" type="submit">Envoyer</button>
