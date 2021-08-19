@@ -17,7 +17,6 @@ public class ProfilController {
 	public String postProfilForm() {
 
 		return "/layouts/profil"; 
-
 	}
 
 }
