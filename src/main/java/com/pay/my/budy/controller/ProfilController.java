@@ -15,9 +15,8 @@ public class ProfilController {
 	
 	@PostMapping
 	public String postProfilForm() {
-		
+
 		return "/layouts/profil"; 
-		
 	}
 
 }
