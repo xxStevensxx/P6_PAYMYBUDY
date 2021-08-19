@@ -9,7 +9,7 @@ public class ProfilController {
 	@GetMapping(value = "/profil")
 	public String profilController() {
 		
-		return "layouts/profil";
+		return "/layouts/profil";
 	}
 
 }
