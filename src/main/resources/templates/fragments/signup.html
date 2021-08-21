@@ -7,13 +7,12 @@
 </div>
 <div id="email" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input name="username" oninput="this.value = this.value.toLowerCase()" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  <input name="email" oninput="this.value = this.value.toLowerCase()" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
 </div>
  <div id="psw" class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input name="password" type="password" class="form-control" id="exampleInputPassword1">
   </div>
-     <div class="alert alert-danger" role="alert" th:if="${#param.error}">invalid username or password</div>
 <div class="btn-container">
     <button class="btn btn-primary" type="submit">sign Up</button>
 </div>
