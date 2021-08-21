@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.pay.my.budy.model.User;
 import com.pay.my.budy.repository.UserRepository;
 
+
+
 @Controller
 public class ProfilController {
 	
