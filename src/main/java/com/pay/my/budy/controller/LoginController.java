@@ -16,7 +16,7 @@ public class LoginController {
 	}
 	
 	
-	@PostMapping
+	@PostMapping(value = "/signin")
 	public String postLoginForm() {
 		
 		return "/layouts/index"; 
