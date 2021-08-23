@@ -19,7 +19,7 @@
   </div>
 <div id="address" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Adresse</label>
-  <input name="adr" class="form-control" id="exampleFormControlInput1" placeholder="rue de paris">
+  <input name="address" class="form-control" id="exampleFormControlInput1" placeholder="rue de paris">
 </div>
        <div align="center"  class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('global')}" th:each="err : ${#fields.errors('global')}" th:text="${err}"></div>
 <div class="btn-container">
