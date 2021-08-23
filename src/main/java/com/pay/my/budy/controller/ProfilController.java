@@ -22,7 +22,7 @@ public class ProfilController {
 		return "/layouts/profil";
 	}
 	
-	@PostMapping
+	@PostMapping(value = "/profil")
 	public String postProfilForm(User user) {
 		
 		userRepository.save(user);
