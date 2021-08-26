@@ -28,8 +28,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		auth.jdbcAuthentication()
 			.dataSource(dataSource)
 			.passwordEncoder(passwordEncoder());
-//			.usersByUsernameQuery("select email as username, password, 'true' from users where email = ?")
-//			.authoritiesByUsernameQuery("select authorities.username, authorities.authority from authorities inner join users on users.id = authorities.username where users.email = ?");
 				
 	}
 	
@@ -42,6 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.and()
 			.formLogin()
 			.loginPage("/signin")
+			.usernameParameter("email")
 			.and()
 			.logout()
 			.logoutUrl("/logout")
