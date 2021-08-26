@@ -23,7 +23,8 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `authorities`;
 CREATE TABLE IF NOT EXISTS `authorities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` int(11),
+  `user_id` int(11),
+  `username` varchar(50),
   `authority` varchar(50),
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -32,8 +33,8 @@ CREATE TABLE IF NOT EXISTS `authorities` (
 -- Déchargement des données de la table `authorities`
 --
 
-INSERT INTO `authorities` (`id`, `username`, `authority`) VALUES
-(1, 1, 'USER');
+INSERT INTO `authorities` (`user_id`, `username`, `authority`) VALUES
+(1, 'test@test', 'USER');
 
 
 -- --------------------------------------------------------
@@ -96,10 +97,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50),
   `name` varchar(50),
+  `firstname` varchar(75),
   `birthdate` date,
   `address` varchar(100),
-  `email` varchar(75),
   `password` varchar(100),
+  `enabled` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -107,8 +109,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `name`, `birthdate`, `address`, `email`, `password`) VALUES
-(1, 'test', 'test', NULL, NULL, 'test@test', '$2y$10$jWvX8H.8XzHZkfZdP5pOY.1jXkH2HsLPCMTnINYCTtYL76F0saeHS');
+INSERT INTO `users` (`username`, `name`, `firstname`, `birthdate`, `address`, `password`) VALUES
+('test@test', 'test', 'test-test', NULL, 'rue de test', '$2y$10$jWvX8H.8XzHZkfZdP5pOY.1jXkH2HsLPCMTnINYCTtYL76F0saeHS');
 
 --
 -- Contraintes pour les tables déchargées
@@ -118,7 +120,7 @@ INSERT INTO `users` (`id`, `username`, `name`, `birthdate`, `address`, `email`, 
 -- Contraintes pour la table `authorities`
 --
 ALTER TABLE `authorities`
-  ADD CONSTRAINT `fk_username` FOREIGN KEY (`username`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `fk_username` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Contraintes pour la table `bankaccounts`
