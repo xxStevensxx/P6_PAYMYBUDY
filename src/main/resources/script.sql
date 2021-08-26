@@ -98,6 +98,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(50),
   `name` varchar(50),
   `firstname` varchar(75),
+  `email` varchar(100),
   `birthdate` date,
   `address` varchar(100),
   `password` varchar(100),
