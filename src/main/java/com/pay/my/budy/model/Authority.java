@@ -23,6 +23,11 @@ public class Authority implements GrantedAuthority {
 	@Column(name = "id")
 	private int id;
 	
+	
+	@Column(name = "user_id")
+	@JoinColumn(name = "id")
+	private int user_id;
+	
 	@ManyToOne
 	@JoinColumn(name = "username")
 	private User username;

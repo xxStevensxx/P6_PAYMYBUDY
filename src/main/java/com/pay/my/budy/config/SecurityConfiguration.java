@@ -27,9 +27,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		auth.jdbcAuthentication()
 			.dataSource(dataSource)
-			.passwordEncoder(passwordEncoder())
-			.usersByUsernameQuery("select email as username, password, 'true' from users where email = ?")
-			.authoritiesByUsernameQuery("select username, authority from authorities where username = ?");
+			.passwordEncoder(passwordEncoder());
 				
 	}
 	
@@ -38,10 +36,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
-			.antMatchers("/", "/home", "/transfert", "/contact", "/logout").authenticated()
+			.antMatchers("/", "/home", "/transfert", "/contact", "/logout", "/profil" ).authenticated()
 			.and()
 			.formLogin()
 			.loginPage("/signin")
+			.usernameParameter("email")
 			.and()
 			.logout()
 			.logoutUrl("/logout")
