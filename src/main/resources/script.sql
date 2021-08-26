@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `authorities`;
 CREATE TABLE IF NOT EXISTS `authorities` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50),
+  `username` int(11),
   `authority` varchar(50),
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `authorities` (
 --
 
 INSERT INTO `authorities` (`id`, `username`, `authority`) VALUES
-(1, 'test', 'ADMIN');
+(1, 1, 'USER');
 
 
 -- --------------------------------------------------------
@@ -113,6 +113,12 @@ INSERT INTO `users` (`id`, `username`, `name`, `birthdate`, `address`, `email`, 
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `authorities`
+--
+ALTER TABLE `authorities`
+  ADD CONSTRAINT `fk_username` FOREIGN KEY (`username`) REFERENCES `users` (`id`);
 
 --
 -- Contraintes pour la table `bankaccounts`
