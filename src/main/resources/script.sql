@@ -119,7 +119,7 @@ INSERT INTO `users` (`username`, `name`, `firstname`, `birthdate`, `address`, `p
 -- Structure de la table `SPRING_SESSION`
 --
 
-DROP TABLE IF EXIST `SPRING_SESSION`;
+DROP TABLE IF EXISTS `SPRING_SESSION`;
 CREATE TABLE IF NOT EXISTS `SPRING_SESSION` (
 `primary_id` CHAR(36) NOT NULL,
 `session_id` CHAR(36) NOT NULL,
@@ -136,7 +136,7 @@ CONSTRAINT spring_session_pk PRIMARY KEY (primary_id)
 --
 -- Structure de la table `SPRING_SESSION_ATTRIBUTES`
 --
-DROP TABLE IF EXIST `SPRING_SESSION_ATTRIBUTES`;
+DROP TABLE IF EXISTS `SPRING_SESSION_ATTRIBUTES`;
 CREATE TABLE IF NOT EXISTS SPRING_SESSION_ATTRIBUTES (
 `session_primary_id` CHAR(36) NOT NULL,
 `attribute_name` VARCHAR(200) NOT NULL,
