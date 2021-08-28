@@ -19,9 +19,11 @@
         <li class="nav-item">
           <a class="nav-link" th:href="@{/contact}">Contact</a>
         </li>
-           <li class="nav-item">
-          <a  class="nav-link" th:href="@{/logout}">Logout</a>
-        </li>
+        <form sec:authorize="isAuthenticated()"  th:action="@{/logout}" method="post">
+           	<li class="nav-item">
+          		<input id="logout" type="submit" value="logout" class="nav-link"/>
+        	</li>
+        </form>
        <!--  <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li> -->
