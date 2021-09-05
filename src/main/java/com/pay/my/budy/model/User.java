@@ -35,7 +35,7 @@ public class User implements UserDetails {
 	public User(String username, String firstname, String name, LocalDate birthdate, String address, String email,
 			String password, List<Relationship> friends, double moneyAvailable) {
 		this.username = username;
-		this.firstName = firstname;
+		this.firstname = firstname;
 		this.name = name;
 		this.birthDate = birthdate;
 		this.address = address;
@@ -56,7 +56,7 @@ public class User implements UserDetails {
 	
 	
 	@Column(name="firstname")
-	private String firstName;
+	private String firstname;
 	
 	
 	@Column(name="name")
@@ -110,11 +110,11 @@ public class User implements UserDetails {
 	}
 	
 	public String getFirstName() {
-		return firstName;
+		return firstname;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstName(String firstname) {
+		this.firstname = firstname;
 	}
 
 	public String getName() {
