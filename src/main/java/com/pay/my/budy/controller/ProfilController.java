@@ -1,5 +1,7 @@
 package com.pay.my.budy.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.pay.my.budy.model.User;
 import com.pay.my.budy.repository.UserRepository;
+import com.pay.my.budy.service.UserServices;
 
 
 
@@ -14,7 +17,7 @@ import com.pay.my.budy.repository.UserRepository;
 public class ProfilController {
 	
 	@Autowired
-	UserRepository userRepository;
+	UserServices userServices;
 	
 	@GetMapping(value = "/profil")
 	public String profilController() {
@@ -23,9 +26,9 @@ public class ProfilController {
 	}
 	
 	@PostMapping(value = "/profil")
-	public String postProfilForm(User user) {
+	public String postProfilForm(HttpSession session, User user) {
 		
-		userRepository.save(user);
+		userServices.profilServices(session.getAttribute("session_name").toString(), user);
 			return "/layouts/profil"; 
 	}
 

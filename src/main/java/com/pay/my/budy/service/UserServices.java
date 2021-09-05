@@ -1,7 +1,29 @@
 package com.pay.my.budy.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pay.my.budy.model.User;
+import com.pay.my.budy.repository.UserRepository;
+
+@Service
 public class UserServices {
 	
-	
+	@Autowired
+	UserRepository userRepository;
 
+	public void profilServices(String username, User user) {
+			
+		User userFindInRepository = userRepository.findByusername(username);
+		
+		userFindInRepository.setFirstName(user.getFirstName());
+		userFindInRepository.setName(user.getName());
+		userFindInRepository.setBirthDate(user.getBirthDate());
+		userFindInRepository.setAddress(user.getAddress());
+				
+			userRepository.save(userFindInRepository);
+		
+	}
+	
+	
 }
