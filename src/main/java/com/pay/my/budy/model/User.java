@@ -32,9 +32,10 @@ public class User implements UserDetails {
 	public User() {}
 	
 	
-	public User(String username, String name, LocalDate birthdate, String address, String email,
+	public User(String username, String firstname, String name, LocalDate birthdate, String address, String email,
 			String password, List<Relationship> friends, double moneyAvailable) {
 		this.username = username;
+		this.firstName = firstname;
 		this.name = name;
 		this.birthDate = birthdate;
 		this.address = address;
@@ -52,6 +53,7 @@ public class User implements UserDetails {
 
 	@Column(name="username")
 	private String username;
+	
 	
 	@Column(name="firstname")
 	private String firstName;
