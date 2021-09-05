@@ -109,14 +109,14 @@ public class User implements UserDetails {
 		this.username = username;
 	}
 	
-	public String getFirstName() {
+	public String getFirstname() {
 		return firstname;
 	}
 
-	public void setFirstName(String firstname) {
+	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
