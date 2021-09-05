@@ -53,6 +53,9 @@ public class User implements UserDetails {
 	@Column(name="username")
 	private String username;
 	
+	@Column(name="firstname")
+	private String firstName;
+	
 	
 	@Column(name="name")
 	private String name;
@@ -100,8 +103,16 @@ public class User implements UserDetails {
 		return username;
 	}
 
-	public void setFisrtName(String username) {
+	public void setUserName(String username) {
 		this.username = username;
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getName() {
