@@ -2,8 +2,6 @@ package com.pay.my.budy.controller;
 
 
 import java.security.Principal;
-import java.util.Collection;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +25,7 @@ public class HomeController {
 		model.addAttribute("session_name", principal.getName());		
 		session.setAttribute("session_name", model.getAttribute("session_name"));
 		
-		System.err.println(session.getAttribute("session"));
+		System.err.println(session.getAttribute("session_name"));
 		
 			return "/layouts/index";
 	}

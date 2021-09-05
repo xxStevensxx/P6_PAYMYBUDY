@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.pay.my.budy.model.User;
-import com.pay.my.budy.repository.UserRepository;
 import com.pay.my.budy.service.UserServices;
 
 
