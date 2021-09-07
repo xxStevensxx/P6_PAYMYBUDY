@@ -9,7 +9,7 @@
   <label for="exampleFormControlInput1" class="form-label">Nom</label>
   <input name="name" class="form-control" id="exampleFormControlInput1" placeholder="Nom">
 </div>
-<div id="prenom" class="mb-3">
+<div id="firtname" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Prénom</label>
   <input name="firstname" class="form-control" id="exampleFormControlInput1" placeholder="prénom">
 </div>
@@ -28,3 +28,29 @@
   </div>
 </div>
 </form>
+
+
+
+
+
+<!-- info_profil  -->
+<table th:fragment="info_profil" class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Pr�nom</th>
+      <th scope="col">Email</th>
+      <th scope="col">Date de naissance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td th:text="${user.id}"></td>
+      <td th:text="${user.name}"></td>
+      <td th:text="${user.firstname}"></td>
+      <td th:text="${user.address}"></td>
+      <td th:text="${user.username}"></td>
+      <td th:text="${user.birthdate}"></td>
+  </tbody>
+</table>
