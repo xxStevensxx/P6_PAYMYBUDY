@@ -37,7 +37,7 @@ public class User implements UserDetails {
 		this.username = username;
 		this.firstname = firstname;
 		this.name = name;
-		this.birthDate = birthdate;
+		this.birthdate = birthdate;
 		this.address = address;
 		this.email = email;
 		this.password = password;
@@ -64,7 +64,7 @@ public class User implements UserDetails {
 	
 	
 	@Column(name="birthdate")
-	private LocalDate birthDate;
+	private LocalDate birthdate;
 	
 	
 	@Column(name="address")
@@ -105,7 +105,7 @@ public class User implements UserDetails {
 		return username;
 	}
 
-	public void setUserName(String username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 	
@@ -125,12 +125,12 @@ public class User implements UserDetails {
 		this.name = name;
 	}
 
-	public LocalDate getBirthDate() {
-		return birthDate;
+	public LocalDate getBirthdate() {
+		return birthdate;
 	}
 
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
+	public void setBirthdate(LocalDate birthdate) {
+		this.birthdate = birthdate;
 	}
 
 	public String getAddress() {
