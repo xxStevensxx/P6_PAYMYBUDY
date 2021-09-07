@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
@@ -28,9 +27,8 @@ public class Authority implements GrantedAuthority {
 	@JoinColumn(name = "id")
 	private int user_id;
 	
-	@ManyToOne
-	@JoinColumn(name = "username")
-	private User username;
+	@Column(name = "username")
+	private String username;
 	
 	@Column
 	private String authority;
@@ -39,6 +37,34 @@ public class Authority implements GrantedAuthority {
 	public String getAuthority() {
 		
 		return  authority;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 
 }

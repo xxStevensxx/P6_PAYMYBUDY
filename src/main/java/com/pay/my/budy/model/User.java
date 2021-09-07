@@ -94,7 +94,7 @@ public class User implements UserDetails {
 	private List<Authority> authorities;
 
 		 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
