@@ -16,9 +16,9 @@ public class UserServices {
 			
 		User userFindInRepository = userRepository.findByusername(username);
 		
-		userFindInRepository.setFirstName(user.getFirstName());
+		userFindInRepository.setFirstname(user.getFirstname());
 		userFindInRepository.setName(user.getName());
-		userFindInRepository.setBirthDate(user.getBirthDate());
+		userFindInRepository.setBirthdate(user.getBirthdate());
 		userFindInRepository.setAddress(user.getAddress());
 				
 			userRepository.save(userFindInRepository);
