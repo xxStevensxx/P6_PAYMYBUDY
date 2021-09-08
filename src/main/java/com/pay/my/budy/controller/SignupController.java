@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.pay.my.budy.config.SecurityConfiguration;
 import com.pay.my.budy.model.User;
 import com.pay.my.budy.repository.UserRepository;
+import com.pay.my.budy.service.UserServices;
 
 @Controller
 public class SignupController {
@@ -18,6 +19,9 @@ public class SignupController {
 	
 	@Autowired
 	SecurityConfiguration security;
+	
+	@Autowired
+	UserServices userService;
 	
 	
 	@GetMapping(value = "/signup")
@@ -30,8 +34,7 @@ public class SignupController {
 	@PostMapping(value = "/signup")
 	public String postSignupForm(User user) {
 		
-		user.setPassword(security.passwordEncoder().encode(user.getPassword()));
-		userRepository.save(user);
+		userService.signup(user);
 			return "/layouts/signin";
 	}
 	
