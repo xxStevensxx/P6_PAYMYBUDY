@@ -39,7 +39,7 @@ public class ProfilController {
 	@PostMapping(value = "/profil")
 	public String postProfilForm(Principal principal, User user) {
 		
-		userServices.profilServices(principal.getName(), user);
+		userServices.profil(principal.getName(), user);
 			return "/layouts/profil"; 
 	}
 
