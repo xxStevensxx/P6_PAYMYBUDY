@@ -1,27 +1,43 @@
 package com.pay.my.budy.dto;
 
-import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.pay.my.budy.model.User;
 
+@Component
 public class Mapper {
 	
+	@Autowired
+	UserDTO userDTO;
 	
+	@Autowired
+	User user;
 	
 	public UserDTO toDTO(User user) {
-		
-		String name = user.getName();
-		String firstname = user.getFirstname();
-		LocalDate birthdate = user.getBirthdate();
-		String address = user.getAddress();
-		
-			return new UserDTO(name, firstname, birthdate, address);
+			
+		userDTO.setFirstname(user.getFirstname());
+		userDTO.setName(user.getName());
+		userDTO.setBirthdate(user.getBirthdate());
+		userDTO.setAddress(user.getAddress());
+		userDTO.setUsername(user.getUsername());
+ 
+
+			return userDTO;
 	}
 	
 	
 	public User toUser(UserDTO userDTO) {
 		
-			return new User(userDTO.getFirstname(), userDTO.getName(), userDTO.getBirthdate(), userDTO.getAddress());	
+		user.setFirstname(userDTO.getFirstname());
+		user.setName(userDTO.getName());
+		user.setBirthdate(userDTO.getBirthdate());
+		user.setAddress(userDTO.getAddress());
+		user.setUsername(userDTO.getUsername());
+
+		
+			return user;	
 	}
 	
 
