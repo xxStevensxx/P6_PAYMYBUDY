@@ -1,5 +1,5 @@
 <!-- profil  -->
-<form th:fragment="profil" th:action="@{/profil}" method="post">
+<form th:fragment="profil" th:action="@{/profil}" th:object="${userDTO}" method="post">
 <div class="container">
 <div class="formBox">
 <div>
@@ -7,23 +7,23 @@
 </div>
 <div id="nom" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Nom</label>
-  <input name="name" class="form-control" id="exampleFormControlInput1" placeholder="Nom">
+  <input  th:field="*{name}" class="form-control" id="exampleFormControlInput1" placeholder="Nom">
 </div>
 <div id="firtname" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Prénom</label>
-  <input name="firstname" class="form-control" id="exampleFormControlInput1" placeholder="prénom">
+  <input name="firstname" th:field="*{firstname}" class="form-control" id="exampleFormControlInput1" placeholder="prénom">
 </div>
   <div id="birthdate" class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Date de naissance</label>
-    <input name="birthdate" type="date" class="form-control" id="exampleInputPassword1">
+    <input name="birthdate" th:field="*{birthdate}" type="date" class="form-control" id="exampleInputPassword1">
   </div>
 <div id="address" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Adresse</label>
-  <input name="address" class="form-control" id="exampleFormControlInput1" placeholder="rue de paris">
+  <input name="address" th:field="*{address}" class="form-control" id="exampleFormControlInput1" placeholder="rue de paris">
 </div>
        <div align="center"  class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('global')}" th:each="err : ${#fields.errors('global')}" th:text="${err}"></div>
 <div class="btn-container">
-    <button class="btn btn-primary" type="submit">Envoyer</button>
+    <button class="btn btn-primary" type="submit">Mettre � jour</button>
 </div>
   </div>
 </div>
@@ -46,10 +46,10 @@
   </thead>
   <tbody>
     <tr>
-      <td th:text="${user.name}"></td>
-      <td th:text="${user.firstname}"></td>
-      <td th:text="${user.address}"></td>
-      <td th:text="${user.username}"></td>
-      <td th:text="${user.birthdate}"></td>
+      <td th:text="${userDTO.name}"></td>
+      <td th:text="${userDTO.firstname}"></td>
+      <td th:text="${userDTO.address}"></td>
+      <td th:text="${userDTO.username}"></td>
+      <td th:text="${userDTO.birthdate}"></td>
   </tbody>
 </table>
