@@ -16,6 +16,8 @@ public class Mapper {
 	User user;
 	
 	public UserDTO toDTO(User user) {
+		
+		UserDTO userDTO = new UserDTO();
 			
 		userDTO.setFirstname(user.getFirstname());
 		userDTO.setName(user.getName());
@@ -30,6 +32,8 @@ public class Mapper {
 	
 	public User toUser(UserDTO userDTO) {
 		
+		User user = new User();
+		
 		user.setFirstname(userDTO.getFirstname());
 		user.setName(userDTO.getName());
 		user.setBirthdate(userDTO.getBirthdate());
@@ -38,6 +42,18 @@ public class Mapper {
 
 		
 			return user;	
+	}
+
+
+	public User toUser(UserSignupDTO userSignupDTO) {
+		
+		User user = new User();
+		
+		user.setUsername(userSignupDTO.getUsername());
+		user.setPassword(userSignupDTO.getPassword());
+
+			return user;	
+
 	}
 	
 
