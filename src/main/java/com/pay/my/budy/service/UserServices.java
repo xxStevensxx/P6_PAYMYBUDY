@@ -1,16 +1,21 @@
 package com.pay.my.budy.service;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.BindingResult;
 
 import com.pay.my.budy.config.SecurityConfiguration;
 import com.pay.my.budy.constant.Constante;
 import com.pay.my.budy.dto.Mapper;
 import com.pay.my.budy.dto.UserDTO;
 import com.pay.my.budy.model.Authority;
+import com.pay.my.budy.model.Relationship;
 import com.pay.my.budy.model.User;
 import com.pay.my.budy.repository.AuthorityRepository;
+import com.pay.my.budy.repository.RelationShipRepository;
 import com.pay.my.budy.repository.UserRepository;
 
 @Service
@@ -21,6 +26,9 @@ public class UserServices {
 	
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	RelationShipRepository relationRepository;
 	
 	@Autowired
 	AuthorityRepository authRepository;
@@ -81,20 +89,72 @@ public class UserServices {
 	
 	
 	
-	public String addConnection(User user, BindingResult result) {
+	public List<UserDTO> getConnections(String username) {
 		
-
-		User user_info = userRepository.findByusername(user.getUsername());
-		String connection = user_info.getUsername();
+		User user = userRepository.findByusername(username);
 		
-		if (connection == null || connection == "") {
+ 		List<Relationship> relationship = user.getFriends();
+		List<UserDTO> listDtoFriend = new ArrayList<UserDTO>();
+		List<Integer> listIdFriend = new ArrayList<Integer>();
+		
+		for (int index = 0; index < relationship.size(); index++) {
 			
+			int friendID = relationship.get(index).getFriend();
+			listIdFriend.add(friendID);
+			
+		}
+		
+		List<User> friendList = userRepository.findAllById(listIdFriend);
+		
+		
+		for (int index = 0; index < friendList.size(); index++) {
+			
+			User friend = new User();
+			UserDTO userDTO = new UserDTO();
+
+			friend = friendList.get(index);
+			userDTO = mapper.toDTO(friend);
+			listDtoFriend.add(userDTO);
 			
 			
 		}
 		
-		return null;
+				return listDtoFriend;
 		
+	}
+	
+	
+	
+	public void addConnection(String email, String username) {
+		
+		User user = null;
+		Relationship relationShip = null;
+		List<User> listConnection = userRepository.findAll();
+		
+		for (int index = 0; index < listConnection.size(); index++) {
+			
+			if (listConnection.get(index).getUsername().contains(username)) {
+				
+				 user = listConnection.get(index);
+				
+			}
+			
+		}
+		
+		
+		for (int index = 0; index < listConnection.size(); index++) {
+			
+			if (listConnection.get(index).getUsername().contains(email)) {
+				
+				relationShip = new Relationship();
+				relationShip.setFriend(listConnection.get(index).getId());
+				relationShip.setUser_id(user.getId());
+			
+			}
+
+		}
+		
+			relationRepository.save(relationShip);		
 
 	}
 	
