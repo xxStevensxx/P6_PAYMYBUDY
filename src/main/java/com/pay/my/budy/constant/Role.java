@@ -1,6 +1,6 @@
 package com.pay.my.budy.constant;
 
-public class Constante {
+public class Role {
 	
 	
 	public static String USER = "USER";
