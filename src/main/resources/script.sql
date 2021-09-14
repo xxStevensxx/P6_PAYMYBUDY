@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `bankaccounts` (
 DROP TABLE IF EXISTS `relationships`;
 CREATE TABLE IF NOT EXISTS `relationships` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11),
   `friend` int(11),
   PRIMARY KEY (`id`),
   KEY `id_friend` (`friend`)
@@ -167,7 +168,7 @@ ALTER TABLE `bankaccounts`
 -- Contraintes pour la table `relationships`
 --
 ALTER TABLE `relationships`
-  ADD CONSTRAINT `relationships_ibfk_1` FOREIGN KEY (`friend`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `relationships_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Contraintes pour la table `transactions`
