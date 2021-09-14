@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 
+
 @Controller
 public class HomeController {
 	
@@ -21,10 +22,9 @@ public class HomeController {
 	
 	@GetMapping(value = {"/", "/home"})
 	public String homeController(Principal principal, Model model, HttpSession session) {
-				
+		
 		model.addAttribute("session_name", principal.getName());		
 		session.setAttribute("session_name", model.getAttribute("session_name"));
-		
 		System.err.println(session.getAttribute("session_name"));
 		
 			return "/layouts/index";
