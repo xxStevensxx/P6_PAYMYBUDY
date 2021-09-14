@@ -16,8 +16,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,13 +28,22 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
+@DynamicUpdate
 @Table(name="users")
 public class User implements UserDetails {
 	
 	private static final long serialVersionUID = 6744559497724848173L;
 	
 	public User() {}
-	
+
+	public User(String username, String firstname, String name, LocalDate birthdate, String address) {
+		
+		this.username = username;
+		this.firstname = firstname;
+		this.name = name;
+		this.birthdate = birthdate;
+		this.address = address;
+	}
 	
 	public User(String username, String firstname, String name, LocalDate birthdate, String address, String email,
 			String password, List<Relationship> friends, double moneyAvailable) {
@@ -60,7 +71,8 @@ public class User implements UserDetails {
 	@Column(name="firstname")
 	private String firstname;
 	
-	
+	@NotBlank
+	@NotBlank(message = "Ce champ ne doit pas etre vide")
 	@Column(name="name")
 	private String name;
 	
@@ -87,7 +99,7 @@ public class User implements UserDetails {
 							orphanRemoval = true,
 							fetch = FetchType.EAGER,
 							targetEntity = Relationship.class)
-	@JoinColumn(name = "friend")
+	@JoinColumn(name = "user_id")
 	private List<Relationship> friends = new ArrayList<Relationship>();
 	
 	@OneToMany(mappedBy = "username")
