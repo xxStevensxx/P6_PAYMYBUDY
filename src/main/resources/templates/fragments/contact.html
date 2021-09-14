@@ -1,11 +1,12 @@
 <!-- Contact  -->
-<form th:fragment="add_connection" th:action="@{/contact}" class="container">
+<form th:fragment="add_connection" th:action="@{/contact}" method="post" class="container">
   <div class="mb-3">
       <h5 class="card-title">Ajouter vos contacts via leurs email</h5>
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input name="username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 <!--     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
  -->  </div>
+    <div class="alert alert-danger" role="alert" th:if="${param.error}" >Utilisateur non trouvé</div>
   <button type="submit" class="btn btn-primary">Add Connection</button>
 </form>
 
@@ -25,9 +26,9 @@
   </thead>
   <tbody>
     <tr th:each="friend : ${friends}">
-      <th th:text="${friend.name}"></th>
-      <td th:text="${friend.firstname}"></td>
-      <td th:text="${friend.username}"></td> 
+      <th name="name" th:text="${friend.name}"></th>
+      <td name="firstname" th:text="${friend.firstname}"></td>
+      <td name="username" th:text="${friend.username}"></td> 
     </tr>
   </tbody>
 </table>

@@ -129,6 +129,10 @@ public class UserServices {
 		
 		User user = null;
 		Relationship relationShip = null;
+		Relationship myFriendRelationShip = null;
+		
+		List<Relationship> listRelationShip = new ArrayList<Relationship>();
+
 		List<User> listConnection = userRepository.findAll();
 		
 		for (int index = 0; index < listConnection.size(); index++) {
@@ -147,16 +151,24 @@ public class UserServices {
 			if (listConnection.get(index).getUsername().contains(email)) {
 				
 				relationShip = new Relationship();
+				myFriendRelationShip = new Relationship();
+				
 				relationShip.setFriend(listConnection.get(index).getId());
 				relationShip.setUser_id(user.getId());
+				
+				myFriendRelationShip.setFriend(user.getId());
+				myFriendRelationShip.setUser_id(listConnection.get(index).getId());
+				
+				listRelationShip.add(relationShip);
+				listRelationShip.add(myFriendRelationShip);
 			
 			}
 
 		}
 		
-			relationRepository.save(relationShip);		
+			relationRepository.saveAll(listRelationShip);		
 
-	}
+ 	}
 	
 	
 }
