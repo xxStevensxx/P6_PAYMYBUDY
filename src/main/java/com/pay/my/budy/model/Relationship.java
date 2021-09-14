@@ -21,6 +21,10 @@ public class Relationship {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private int id;
+	
+	
+	@Column(name = "user_id")
+	private int user_id;
 
 	@Column(name = "friend")
 	private int friend;
@@ -37,8 +41,16 @@ public class Relationship {
 		return friend;
 	}
 
-	public void setFriendList(int friend) {
+	public void setFriend(int friend) {
 		this.friend = friend;
+	}
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 }
