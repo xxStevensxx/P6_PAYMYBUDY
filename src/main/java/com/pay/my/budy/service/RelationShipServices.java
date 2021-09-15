@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.pay.my.budy.dto.Mapper;
 import com.pay.my.budy.dto.UserDTO;
@@ -12,6 +13,7 @@ import com.pay.my.budy.model.User;
 import com.pay.my.budy.repository.RelationShipRepository;
 import com.pay.my.budy.repository.UserRepository;
 
+@Service
 public class RelationShipServices {
 	
 	@Autowired
