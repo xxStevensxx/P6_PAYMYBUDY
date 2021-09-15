@@ -1,22 +1,20 @@
 <!-- Transfert  -->
-<div th:fragment="transfert" class="container">
+<div th:fragment="transfert" th:object=${friends} class="container">
 
 <div class="row" id="block1">
 	<div id="sendMoney" class="col-sm">
 		<p>Send Money</p>
 	</div>
 	<div id="addCon" class="col-sm">
-    	<button class="btn btn-primary" type="button">Add Connection</button>	
+    	<a class="btn btn-primary" th:href="@{/contact}" type="button">Add Connection</a>	
 	</div>
 </div>
 
 <div class="row" id="block2">
 	<div class="col-sm">
 		<select class="form-select" aria-label="Default select example">
-		  <option selected>Select A Connection</option>
-		  <option value="1">One</option>
-		  <option value="2">Two</option>
-		  <option value="3">Three</option>
+		  <option selected>Select A friend</option>
+		  <option th:each="friend : ${friends}"  name="username" th:text="${friend.username}"></option>
 		</select>
 	</div>
 	<div class="col-sm">
@@ -34,28 +32,17 @@
   <thead class="thead">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Connections</th>
+      <th scope="col">Connection</th>
       <th scope="col">Description</th>
       <th scope="col">Amount</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
+    <tr th:each="friend : ${friends}">
+      <th scope="row"></th>
+     	<th name="name" th:text="${friend.name}"></th>
+      	<td name="firstname" th:text="${friend.firstname}"></td>
+      	<td name="username" th:text="${friend.username}"></td>
     </tr>
   </tbody>
 </table>
