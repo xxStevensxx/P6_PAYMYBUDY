@@ -31,17 +31,11 @@ public class UserServices {
 	Mapper mapper;
 		
 	
-	public Boolean signup(UserSignupDTO userSignupDTO) {	
-		
+	public void signup(UserSignupDTO userSignupDTO) {	
 		
 		User user = mapper.toUser(userSignupDTO);
 		User user_info = userRepository.findByusername(user.getUsername());
-
-		if (user_info.getUsername().contains(userSignupDTO.getUsername())) {
-			
-			return false;
-		}
-		
+	
 		user.setPassword(security.passwordEncoder().encode(user.getPassword()));
 		userRepository.save(user);
 		
@@ -51,11 +45,6 @@ public class UserServices {
 		authority.setAuthority(Role.USER);
 		
 		authRepository.save(authority);
-		
-		
-			return true;
-		
-		
 		
 	}
 	
