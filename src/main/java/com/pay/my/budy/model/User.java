@@ -46,7 +46,7 @@ public class User implements UserDetails {
 	}
 	
 	public User(String username, String firstname, String name, LocalDate birthdate, String address, String email,
-			String password, List<Relationship> friends, double moneyAvailable) {
+			String password, List<Relationship> friends) {
 		this.username = username;
 		this.firstname = firstname;
 		this.name = name;
@@ -102,8 +102,16 @@ public class User implements UserDetails {
 	@JoinColumn(name = "user_id")
 	private List<Relationship> friends = new ArrayList<Relationship>();
 	
+	
 	@OneToMany(mappedBy = "username")
 	private List<Authority> authorities;
+	
+	
+	@OneToMany(cascade = CascadeType.ALL, 
+			orphanRemoval = true,
+			targetEntity = Bankaccount.class)
+	@JoinColumn(name = "Fk_iduser")
+	private List<Bankaccount> bankaccount;
 
 		 	
 	public int getId() {
@@ -183,7 +191,14 @@ public class User implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return authorities;
 	}
+	
+	public List<Bankaccount> getBankaccount() {
+		return bankaccount;
+	}
 
+	public void setBankaccount(List<Bankaccount> bankaccount) {
+		this.bankaccount = bankaccount;
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {
