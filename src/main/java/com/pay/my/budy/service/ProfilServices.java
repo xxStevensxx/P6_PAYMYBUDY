@@ -23,7 +23,7 @@ public class ProfilServices {
 		
 		User user = mapper.toUser(userDTO);			
 		User userFindInRepository = userRepository.findByusername(username);
-		
+			
 		
 		if (user.getFirstname().trim() != "") {userFindInRepository.setFirstname(user.getFirstname());}
 		

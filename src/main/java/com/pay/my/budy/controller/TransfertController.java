@@ -1,7 +1,6 @@
 package com.pay.my.budy.controller;
 
 import java.security.Principal;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,20 +9,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.pay.my.budy.dto.UserDTO;
 import com.pay.my.budy.service.RelationShipServices;
+import com.pay.my.budy.service.TransfertServices;
 
 @Controller
 public class TransfertController {
 	
 	@Autowired
-	RelationShipServices friendShipServices;
+	TransfertServices transfertServices;
+	
+	@Autowired
+	RelationShipServices relationServices;
 	
 	@GetMapping(value = "/transfert")
 	public String transfertController(Principal principal, Model model) {
 		
-		List<UserDTO> friends = friendShipServices.getConnections(principal.getName());
-		model.addAttribute("friends", friends);
 		
-		return "/layouts/transfert";
+//		List<UserDTO> transfertDTO = relationServices.getConnections(principal.getName());
+		UserDTO transfertDTO = transfertServices.DisplayInfotransfert(principal.getName());
+		
+		model.addAttribute("transfertDTO", transfertDTO);
+		
+			return "/layouts/transfert";
 	}
 
 }
