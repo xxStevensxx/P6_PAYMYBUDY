@@ -1,12 +1,13 @@
 <!-- Transfert  -->
-<div th:fragment="transfert" th:object=${friends} class="container">
+<div th:fragment="transfert" th:object=${transfertDTO} class="container">
 
 <div class="row" id="block1">
 	<div id="sendMoney" class="col-sm">
 		<p>Send Money</p>
 	</div>
 	<div id="addCon" class="col-sm">
-    	<a class="btn btn-primary" th:href="@{/contact}" type="button">Add Connection</a>	
+<div class="alert alert-info" th:each="bank : ${transfertDTO.bankaccounts}" role="alert">Argent disponible : <span th:text="${bank.moneyavailable}"></span></div>
+   	<a class="btn btn-primary" th:href="@{/contact}" type="button">Add Connection</a>	
 	</div>
 </div>
 
@@ -14,7 +15,7 @@
 	<div class="col-sm">
 		<select class="form-select" aria-label="Default select example">
 		  <option selected>Select A friend</option>
-		  <option th:each="friend : ${friends}"  name="username" th:text="${friend.username}"></option>
+		  <option th:each="friend : ${transfertDTO.friends}" th:text="${friend.username}"></option>
 		</select>
 	</div>
 	<div class="col-sm">
@@ -38,9 +39,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr th:each="friend : ${friends}">
+    <tr th:each="friend : ${transfertDTO.friends}">
       <th scope="row"></th>
-     	<th name="name" th:text="${friend.name}"></th>
+     	<th name="name" th:text="${friend.username}"></th>
       	<td name="firstname" th:text="${friend.firstname}"></td>
       	<td name="username" th:text="${friend.username}"></td>
     </tr>

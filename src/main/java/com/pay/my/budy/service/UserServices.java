@@ -34,10 +34,11 @@ public class UserServices {
 	public void signup(UserSignupDTO userSignupDTO) {	
 		
 		User user = mapper.toUser(userSignupDTO);
-		User user_info = userRepository.findByusername(user.getUsername());
 	
 		user.setPassword(security.passwordEncoder().encode(user.getPassword()));
 		userRepository.save(user);
+		
+		User user_info = userRepository.findByusername(user.getUsername());
 		
 		Authority authority = new Authority();
 		authority.setUser_id(user_info.getId());
