@@ -5,6 +5,8 @@
 <div>
 <h2 id="pmBudy2">Profil</h2>
 </div>
+ <div class="row">
+  <div class="col-6">
 <div id="nom" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Nom</label>
   <input  th:field="*{name}" class="form-control" id="exampleFormControlInput1" placeholder="Nom">
@@ -17,15 +19,27 @@
     <label for="exampleInputPassword1" class="form-label">Date de naissance</label>
     <input name="birthdate" th:field="*{birthdate}" type="date" class="form-control" id="exampleInputPassword1">
   </div>
-<div id="address" class="mb-3">
+  <div id="address" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Adresse</label>
   <input name="address" th:field="*{address}" class="form-control" id="exampleFormControlInput1" placeholder="rue de paris">
+</div>
+ </div>
+ 	<div th:each="bank : ${userDTO.bankaccounts}" class="col-6">
+<div id="address" class="mb-3">
+  <label for="montant" class="form-label">Solde disponible</label>
+	<div  id="montant" class="alert alert-info" role="alert" align="center"><span th:text="${bank.moneyavailable}"></span> €</div>
+  </div>
+  <div id="address" class="mb-3">
+  <label for="iban" class="form-label">Iban</label>
+	<div id="iban" class="alert alert-info" role="alert" align="center"><span th:text="${bank.iban}"></span> €</div>
+  </div>
+  </div>
 </div>
        <div align="center"  class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('global')}" th:each="err : ${#fields.errors('global')}" th:text="${err}"></div>
 <div class="btn-container">
     <button class="btn btn-primary" type="submit">Mettre à jour</button>
 </div>
-  </div>
+</div>
 </div>
 </form>
 

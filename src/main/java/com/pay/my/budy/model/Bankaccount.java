@@ -13,8 +13,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-@Table(name="")
+@Table(name="bankaccounts")
 public class Bankaccount {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
