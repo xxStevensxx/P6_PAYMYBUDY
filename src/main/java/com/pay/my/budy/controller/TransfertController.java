@@ -27,6 +27,8 @@ public class TransfertController {
 		
 		UserDTO transfertDTO = transfertServices.DisplayInfotransfert(principal.getName());
 		
+		System.err.println(transfertDTO);
+		
 		model.addAttribute("transfertDTO", transfertDTO);
 		
 			return "/layouts/transfert";
@@ -37,7 +39,9 @@ public class TransfertController {
 	public String transferMoney(Principal principal, UserDTO transfertDTO, Model model) {
 		
 		System.err.println(transfertDTO);
-		transfertServices.transfertBis(principal.getName(), transfertDTO);
+		UserDTO userDTO = transfertServices.transfertBis(principal.getName(), transfertDTO);
+		model.addAttribute("transfertDTO", userDTO);
+
 		
 			return "/layouts/transfert";
 

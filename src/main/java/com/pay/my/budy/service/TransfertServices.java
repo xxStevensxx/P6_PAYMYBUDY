@@ -53,7 +53,7 @@ public class TransfertServices {
 	
 	
 	@Transactional
-	public void transfertBis(String username, UserDTO transfertDTO) {
+	public UserDTO transfertBis(String username, UserDTO transfertDTO) {
 		
 		
 		User userWhopay = userRepository.findByusername(username);
@@ -102,6 +102,7 @@ public class TransfertServices {
 					bankRepository.saveAll(listBankaccount);
 			
 		}
+		return mapper.toDTO(userWhopay);
 		
 		
 	}

@@ -132,6 +132,8 @@ public class Mapper {
 	}
 	
 	
+	
+	
 	public User toUser(UserDTO userDTO) {
 		
 		List<User> users = userRepository.findAll();
@@ -152,7 +154,7 @@ public class Mapper {
 		user.setUsername(userDTO.getUsername());
 		
 		
-		if (!userDTO.getFriend().isEmpty()) {
+		if (userDTO.getFriend() != null) {
 			
 			for (int i = 0; i < userDTO.getFriends().size(); i++) {
 				
@@ -165,7 +167,7 @@ public class Mapper {
 		
 	
 		
-		if (!userDTO.getBankaccounts().isEmpty()) {
+		if (userDTO.getBankaccounts() != null) {
 			
 			for (int i = 0; i < userDTO.getBankaccounts().size(); i++) {
 				
@@ -180,7 +182,7 @@ public class Mapper {
 		
 	
 		
-		if (!userDTO.getTransactions().isEmpty()) {
+		if (userDTO.getTransactions() != null) {
 			for (int i = 0; i < userDTO.getTransactions().size(); i++) {
 				
 				int recipient = 0;
