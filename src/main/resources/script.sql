@@ -54,6 +54,12 @@ CREATE TABLE IF NOT EXISTS `bankaccounts` (
   UNIQUE KEY `FK_iduser` (`FK_iduser`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `bankaccounts`
+--
+
+INSERT INTO `bankaccounts` (`FK_iduser`, `iban`, `moneyavailable`) VALUES (1, 'FR76********45', 99.99);
+
 -- --------------------------------------------------------
 
 --
@@ -84,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   `FK_iduser` int(11),
   `recipient` int(11),
   PRIMARY KEY (`id`),
-  UNIQUE KEY `FK_idUser` (`FK_iduser`) USING BTREE
+  KEY `FK_idUser` (`FK_iduser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

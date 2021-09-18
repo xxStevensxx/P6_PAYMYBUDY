@@ -11,15 +11,20 @@ import java.util.List;
 @Component
 public class UserDTO {
 	
-	
+	private int id;
 	private String name;
 	private String firstname;
 	@DateTimeFormat(iso = ISO.DATE, fallbackPatterns = {"M/d/yy", "dd.MM.yyyy"})
 	private LocalDate birthdate;
 	private String address;
 	private String username;
+	private String friend;
+	
+	private double amount;
+	
 	private List<BankaccountDTO> bankaccounts;
 	private List<FriendDTO> friends;	
+	private List<TransactionDTO> transactions;
 	
 	
 	
@@ -79,6 +84,31 @@ public class UserDTO {
 	}
 	public void setFriends(List<FriendDTO> friends) {
 		this.friends = friends;
+	}
+	public List<TransactionDTO> getTransactions() {
+		return transactions;
+	}
+	public void setTransactions(List<TransactionDTO> transactions) {
+		this.transactions = transactions;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getFriend() {
+		return friend;
+	}
+	public void setFriend(String friend) {
+		this.friend = friend;
+	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
 }

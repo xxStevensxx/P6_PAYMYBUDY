@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.pay.my.budy.dto.UserDTO;
 import com.pay.my.budy.service.RelationShipServices;
@@ -24,12 +25,23 @@ public class TransfertController {
 	public String transfertController(Principal principal, Model model) {
 		
 		
-//		List<UserDTO> transfertDTO = relationServices.getConnections(principal.getName());
 		UserDTO transfertDTO = transfertServices.DisplayInfotransfert(principal.getName());
 		
 		model.addAttribute("transfertDTO", transfertDTO);
 		
 			return "/layouts/transfert";
+	}
+	
+	
+	@PostMapping(value = "/transfert")
+	public String transferMoney(Principal principal, UserDTO transfertDTO, Model model) {
+		
+		System.err.println(transfertDTO);
+		transfertServices.transfertBis(principal.getName(), transfertDTO);
+		
+			return "/layouts/transfert";
+
+		
 	}
 
 }

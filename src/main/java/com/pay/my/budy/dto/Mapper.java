@@ -1,10 +1,15 @@
 package com.pay.my.budy.dto;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.pay.my.budy.model.Bankaccount;
+import com.pay.my.budy.model.Relationship;
+import com.pay.my.budy.model.Transactions;
 import com.pay.my.budy.model.User;
 import com.pay.my.budy.repository.UserRepository;
 
@@ -30,6 +35,8 @@ public class Mapper {
 		userDTO.setBirthdate(user.getBirthdate());
 		userDTO.setAddress(user.getAddress());
 		userDTO.setUsername(user.getUsername());
+		
+//		userDTO.getFriends().get(0).getFirstname();
 		
 		if (!user.getBankaccount().isEmpty()) {
 			
@@ -60,8 +67,10 @@ public class Mapper {
 						
 					if (user.getFriends().get(i).getFriend() == listUser.get(j).getId()) {
 						
-						System.err.println(user.getFriends().get(i).getFriend());
-						System.err.println(listUser.get(j).getId());
+						/*
+						 * System.err.println(user.getFriends().get(i).getFriend());
+						 * System.err.println(listUser.get(j).getId());
+						 */
 						
 					FriendDTO friendsDTO = new FriendDTO();
 						
@@ -77,11 +86,46 @@ public class Mapper {
 
 					}
 				}
-				
-				
-
 			
 			userDTO.setFriends(listFriend);
+		}
+		
+		
+		if (!user.getTransactions().isEmpty()) {
+			
+			List<User> users = userRepository.findAll();
+			List<TransactionDTO> listTransacDTO = new ArrayList<>(); 
+			String username = null;
+			
+			for (int i = 0; i < user.getTransactions().size(); i++) {
+				
+				if (user.getTransactions().get(i).getFk_iduser() == user.getId()) {
+					
+					TransactionDTO transacDTO = new TransactionDTO();
+					
+					for (User getUser : users) {
+						
+						if (getUser.getId() == user.getTransactions().get(i).getRecipient()) {
+							
+							 username = getUser.getUsername();
+							 
+						}
+						
+					}
+					
+					transacDTO.setUsername(username);
+					transacDTO.setAmount(user.getTransactions().get(i).getAmount());
+					transacDTO.setDate(user.getTransactions().get(i).getDate());
+					transacDTO.setLabel(user.getTransactions().get(i).getLabel());
+					
+					listTransacDTO.add(transacDTO);
+					
+				}
+				
+			}
+			
+			userDTO.setTransactions(listTransacDTO);
+						
 		}
 		
 			return userDTO;
@@ -90,21 +134,91 @@ public class Mapper {
 	
 	public User toUser(UserDTO userDTO) {
 		
+		List<User> users = userRepository.findAll();
+		
 		User user = new User();
+		Relationship relation = new Relationship();
+		Bankaccount bankaccount = new Bankaccount();
+		Transactions transaction = new Transactions();
+		
+		List<Relationship> relations = new ArrayList<Relationship>();
+		List<Bankaccount> bankaccounts = new ArrayList<Bankaccount>();
+		List<Transactions> tranactions = new ArrayList<Transactions>();
 		
 		user.setFirstname(userDTO.getFirstname());
 		user.setName(userDTO.getName());
 		user.setBirthdate(userDTO.getBirthdate());
 		user.setAddress(userDTO.getAddress());
 		user.setUsername(userDTO.getUsername());
+		
+		
+		if (!userDTO.getFriend().isEmpty()) {
+			
+			for (int i = 0; i < userDTO.getFriends().size(); i++) {
+				
+				relation.setFriend(userDTO.getFriends().get(i).getId());
+				relation.setUser_id(userDTO.getId());
+				
+			}
+			
+		}
+		
+	
+		
+		if (!userDTO.getBankaccounts().isEmpty()) {
+			
+			for (int i = 0; i < userDTO.getBankaccounts().size(); i++) {
+				
+				bankaccount.setDate(userDTO.getBankaccounts().get(i).getDate());
+				bankaccount.setIban(userDTO.getBankaccounts().get(i).getIban());
+				bankaccount.setMoneyAvailable(userDTO.getBankaccounts().get(i).getMoneyavailable());
+				bankaccount.setIdUser(userDTO.getId());
+								
+			}
+			
+		}
+		
+	
+		
+		if (!userDTO.getTransactions().isEmpty()) {
+			for (int i = 0; i < userDTO.getTransactions().size(); i++) {
+				
+				int recipient = 0;
+				
+				transaction.setAmount(userDTO.getTransactions().get(i).getAmount());
+				transaction.setDate(LocalDate.now());
+				
+			for (int j = 0; j < users.size(); j++) {
+					
+					if (users.get(j).getUsername().contains(userDTO.getFriends().get(i).getUsername())) {
+						
+						recipient = users.get(j).getId();
+					}
+					
+				}
+			
+				transaction.setRecipient(recipient);
+				transaction.setFk_iduser(userDTO.getId());
+				
+			}
+			
+		}
 
 		
+		relations.add(relation);
+		bankaccounts.add(bankaccount);
+		tranactions.add(transaction);
+		
+		user.setFriends(relations);
+		user.setBankaccount(bankaccounts);
+		user.setTransactions(tranactions);
+	
 			return user;	
 	}
 
 
 	public User toUser(UserSignupDTO userSignupDTO) {
-		
+		 
 		User user = new User();
 		
 		user.setUsername(userSignupDTO.getUsername());
