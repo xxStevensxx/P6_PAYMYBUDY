@@ -38,7 +38,7 @@ public class Mapper {
 		
 //		userDTO.getFriends().get(0).getFirstname();
 		
-		if (!user.getBankaccount().isEmpty()) {
+		if (user.getBankaccount() != null) {
 			
 			List<BankaccountDTO> listBankAccount = new ArrayList<>();
 			
@@ -56,7 +56,7 @@ public class Mapper {
 		}
 		
 		
-		if (!user.getFriends().isEmpty()) {
+		if (user.getFriends() != null) {
 			
 			List<FriendDTO> listFriend = new ArrayList<FriendDTO>();
 			List<User> listUser = userRepository.findAll();
@@ -91,7 +91,7 @@ public class Mapper {
 		}
 		
 		
-		if (!user.getTransactions().isEmpty()) {
+		if (user.getTransactions() != null) {
 			
 			List<User> users = userRepository.findAll();
 			List<TransactionDTO> listTransacDTO = new ArrayList<>(); 
