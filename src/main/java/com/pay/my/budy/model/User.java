@@ -26,6 +26,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import com.pay.my.budy.dto.UserDTO;
+
 @Component
 @Entity
 @DynamicUpdate
@@ -112,6 +114,12 @@ public class User implements UserDetails {
 			targetEntity = Bankaccount.class)
 	@JoinColumn(name = "Fk_iduser")
 	private List<Bankaccount> bankaccount;
+	
+	@OneToMany(cascade = CascadeType.ALL, 
+			orphanRemoval = true,
+			targetEntity = Transactions.class)
+	@JoinColumn(name = "Fk_iduser")
+	private List<Transactions> transactions;
 
 		 	
 	public int getId() {
@@ -218,6 +226,18 @@ public class User implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	public List<Transactions> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(List<Transactions> transactions) {
+		this.transactions = transactions;
+	}
+
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
 	}
 
 }
