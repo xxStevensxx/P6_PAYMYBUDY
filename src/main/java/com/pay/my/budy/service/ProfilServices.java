@@ -1,11 +1,15 @@
 package com.pay.my.budy.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pay.my.budy.dto.Mapper;
 import com.pay.my.budy.dto.UserDTO;
+import com.pay.my.budy.model.Bankaccount;
 import com.pay.my.budy.model.User;
+import com.pay.my.budy.repository.BankaccountRepository;
 import com.pay.my.budy.repository.UserRepository;
 
 
@@ -18,10 +22,15 @@ public class ProfilServices {
 	@Autowired
 	UserRepository userRepository;
 	
+	@Autowired
+	BankaccountRepository bankRepository;
+
+	
 	
 	public void profil(String username, UserDTO userDTO) {
 		
 		User user = mapper.toUser(userDTO);			
+		List<Bankaccount> bank = user.getBankaccount();
 		User userFindInRepository = userRepository.findByusername(username);
 			
 		
@@ -35,6 +44,7 @@ public class ProfilServices {
 
 				
 			userRepository.save(userFindInRepository);
+			bankRepository.saveAll(bank);
 		
 	}
 	

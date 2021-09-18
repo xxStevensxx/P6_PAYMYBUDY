@@ -21,7 +21,14 @@ public class UserDTO {
 	private String friend;
 	
 	private double amount;
+	private String iban;
 	
+	public String getIban() {
+		return iban;
+	}
+	public void setIban(String iban) {
+		this.iban = iban;
+	}
 	private List<BankaccountDTO> bankaccounts;
 	private List<FriendDTO> friends;	
 	private List<TransactionDTO> transactions;
