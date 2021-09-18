@@ -5,45 +5,25 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
+import org.springframework.stereotype.Component;
 
 
-
+@Component
 public class TransfertDTO {
 	
-	private String name;
-	private String firstname;
+
 	@DateTimeFormat(iso = ISO.DATE, fallbackPatterns = {"M/d/yy", "dd.MM.yyyy"})
-	private LocalDate birthdate;
-	private String address;
+	private LocalDate date;
 	private String username;
-	private String iban;
-	private double moneyavailable;
-	private List<FriendDTO> relationship;
-	private List<?> bankaccount;
+	private String friend;
+	private double amount;
 	
-	public String getName() {
-		return name;
+	
+	public LocalDate getDate() {
+		return date;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getFirstname() {
-		return firstname;
-	}
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-	public LocalDate getBirthdate() {
-		return birthdate;
-	}
-	public void setBirthdate(LocalDate birthdate) {
-		this.birthdate = birthdate;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setDate(LocalDate date) {
+		this.date = date;
 	}
 	public String getUsername() {
 		return username;
@@ -51,29 +31,18 @@ public class TransfertDTO {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getIban() {
-		return iban;
+	public String getFriend() {
+		return friend;
 	}
-	public void setIban(String iban) {
-		this.iban = iban;
+	public void setFriend(String friend) {
+		this.friend = friend;
 	}
-	public double getMoneyavailable() {
-		return moneyavailable;
+	public double getAmount() {
+		return amount;
 	}
-	public void setMoneyavailable(double moneyavailable) {
-		this.moneyavailable = moneyavailable;
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
-	public List<FriendDTO> getRelationship() {
-		return relationship;
-	}
-	public void setRelationship(List<FriendDTO> relationship) {
-		this.relationship = (List<FriendDTO>) relationship;
-	}
-	public List<?> getBankaccount() {
-		return bankaccount;
-	}
-	public void setBankaccount(List<?> bankaccount) {
-		this.bankaccount = bankaccount;
-	}
+
 	
 }
