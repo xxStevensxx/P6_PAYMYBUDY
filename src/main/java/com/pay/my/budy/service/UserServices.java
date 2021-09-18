@@ -11,8 +11,10 @@ import com.pay.my.budy.constant.Role;
 import com.pay.my.budy.dto.Mapper;
 import com.pay.my.budy.dto.UserSignupDTO;
 import com.pay.my.budy.model.Authority;
+import com.pay.my.budy.model.Bankaccount;
 import com.pay.my.budy.model.User;
 import com.pay.my.budy.repository.AuthorityRepository;
+import com.pay.my.budy.repository.BankaccountRepository;
 import com.pay.my.budy.repository.UserRepository;
 
 @Service
@@ -28,6 +30,9 @@ public class UserServices {
 	AuthorityRepository authRepository;
 	
 	@Autowired
+	BankaccountRepository bankRepository;
+	
+	@Autowired
 	Mapper mapper;
 		
 	
@@ -39,6 +44,12 @@ public class UserServices {
 		userRepository.save(user);
 		
 		User user_info = userRepository.findByusername(user.getUsername());
+		
+		Bankaccount bank = new Bankaccount();
+		bank.setIdUser(user_info.getId());
+		bank.setMoneyAvailable(0.0);
+		
+		bankRepository.save(bank);	
 		
 		Authority authority = new Authority();
 		authority.setUser_id(user_info.getId());
