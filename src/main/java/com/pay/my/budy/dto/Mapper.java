@@ -172,7 +172,7 @@ public class Mapper {
 			for (int i = 0; i < userDTO.getBankaccounts().size(); i++) {
 				
 				bankaccount.setDate(userDTO.getBankaccounts().get(i).getDate());
-				bankaccount.setIban(userDTO.getBankaccounts().get(i).getIban());
+				bankaccount.setIban(userDTO.getIban());
 				bankaccount.setMoneyAvailable(userDTO.getBankaccounts().get(i).getMoneyavailable());
 				bankaccount.setIdUser(userDTO.getId());
 								

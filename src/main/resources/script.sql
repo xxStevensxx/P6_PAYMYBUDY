@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `bankaccounts` (
   `date` datetime,
   `moneyavailable` double,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `FK_iduser` (`FK_iduser`) USING BTREE
+  KEY `FK_iduser` (`FK_iduser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
