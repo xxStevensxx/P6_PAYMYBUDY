@@ -2,15 +2,23 @@ package com.pay.my.budy.dto;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.stereotype.Component;
+
+import com.sun.istack.NotNull;
 
 @Component
 public class FriendDTO {
 	
 	private int id;
+	
+	@NotNull
+	@NotBlank(message = "Ce champ ne doit pas etre vide !")
 	private String username;
+	
 	private String firstname;
 	private String name;
 	@DateTimeFormat(iso = ISO.DATE, fallbackPatterns = {"M/d/yy", "dd.MM.yyyy"})

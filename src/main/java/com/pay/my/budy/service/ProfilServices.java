@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.pay.my.budy.dto.Mapper;
 import com.pay.my.budy.dto.UserDTO;
+import com.pay.my.budy.mapper.UserMapper;
 import com.pay.my.budy.model.Bankaccount;
 import com.pay.my.budy.model.User;
 import com.pay.my.budy.repository.BankaccountRepository;
@@ -38,9 +39,10 @@ public class ProfilServices {
 	 * @param username, le username passé en param afin de traiter 
 	 * @param userDTO les infos (type DTO) de la vue qui a traversé la vue et le controller pour etre mappé en user via mapper.toUSER dans la couche service
 	 */
-	public void profil(String username, UserDTO userDTO) {
+	public UserDTO profil(String username, UserDTO userDTO) {
 		
 		User user = mapper.toUser(userDTO);	
+		
 		List<Bankaccount> banks = user.getBankaccount();
 		Bankaccount bank = new Bankaccount();
 		User userFindInRepository = userRepository.findByusername(username);
@@ -67,6 +69,8 @@ public class ProfilServices {
 		
 			userRepository.save(userFindInRepository);
 			bankRepository.save(bank);
+			
+				return userDTO;
 		
 	}
 	

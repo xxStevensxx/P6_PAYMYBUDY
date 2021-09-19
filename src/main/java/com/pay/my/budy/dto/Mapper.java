@@ -189,6 +189,8 @@ public class Mapper {
 				
 				transaction.setAmount(userDTO.getTransactions().get(i).getAmount());
 				transaction.setDate(LocalDate.now());
+				transaction.setLabel(userDTO.getLabel());
+
 				
 			for (int j = 0; j < users.size(); j++) {
 					

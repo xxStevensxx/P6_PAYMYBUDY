@@ -5,7 +5,12 @@ import java.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.stereotype.Component;
+
+import com.sun.istack.NotNull;
+
 import java.util.List;
+
+import javax.validation.constraints.NotBlank;
 
 
 @Component
@@ -19,8 +24,17 @@ public class UserDTO {
 	private String address;
 	private String username;
 	private String friend;
-	
 	private double amount;
+	private String label;
+	
+	public String getLabel() {
+		return label;
+	}
+	public void setLabel(String label) {
+		this.label = label;
+	}
+	@NotNull
+	@NotBlank(message = "ce champs ne doit pas etre vide")
 	private String iban;
 	
 	public String getIban() {

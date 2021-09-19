@@ -13,13 +13,14 @@
 
 <div class="row" id="block2">
 	<div class="col-sm">
-		<select th:field="${transfertDTO.friend}" class="form-select" aria-label="Default select example">
-		  <option value="select a friend" selected>Select A friend</option>
-		  <option th:each="friend : ${transfertDTO.friends}" th:text="${friend.username}" th:value="${friend.username}"></option>
+		<select th:field="${transfertDTO.friend}" class="form-select" required aria-label="select example">
+		  <option value="" selected>Select A friend</option>
+		  <option th:each="friend : ${transfertDTO.friends}" th:text="${friend.username}" th:value="${friend.username}" required></option>
 		</select>
 	</div>
 	<div class="col-sm">
-		  <input th:field="${transfertDTO.amount}" type="number" class="form-control" id="formGroupExampleInput" placeholder="0$">
+		  <input th:field="${transfertDTO.amount}" type="number" class="form-control" id="formGroupExampleInput" placeholder="0$" required>
+		  	<input th:field="${transfertDTO.label}" type="text" class="form-control" id="formGroupExampleInput" placeholder="Pizza party">
 	</div>
 	<div class="form-floating">
 <!--   <textarea th:each="transac : ${transfertDTO.transactions}" th:field="${transac.label}" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
@@ -28,7 +29,7 @@
 		<button id="pay" type="submit" class="btn btn-primary">Pay</button>
 	</div>
 </div>
-
+<div id="info" style="margin-top: 3%" class="alert alert-warning" role="alert"> Attention une taxe de 5% s'applique aux transfert d'argent </div>
 <div>
 	<p>My Transactions</p>
 </div>
