@@ -50,6 +50,7 @@ public class UserDTO {
 	
 	
 	public UserDTO() {}
+	public UserDTO(String username) {}
 	public UserDTO(String name, String firstname, String address, String username, LocalDate birthdate) {}
 	
 	

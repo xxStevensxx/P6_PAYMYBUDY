@@ -5,12 +5,11 @@ package com.pay.my.budy.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.BindingResult;
 
 import com.pay.my.budy.config.SecurityConfiguration;
 import com.pay.my.budy.constant.Role;
-import com.pay.my.budy.dto.Mapper;
 import com.pay.my.budy.dto.UserSignupDTO;
+import com.pay.my.budy.mapper.Mapper;
 import com.pay.my.budy.model.Authority;
 import com.pay.my.budy.model.Bankaccount;
 import com.pay.my.budy.model.User;

@@ -26,7 +26,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.pay.my.budy.dto.UserDTO;
 
 @Component
 @Entity
@@ -38,13 +37,10 @@ public class User implements UserDetails {
 	
 	public User() {}
 
-	public User(String username, String firstname, String name, LocalDate birthdate, String address) {
+	public User(String username) {
 		
 		this.username = username;
-		this.firstname = firstname;
-		this.name = name;
-		this.birthdate = birthdate;
-		this.address = address;
+
 	}
 	
 	public User(String username, String firstname, String name, LocalDate birthdate, String address, String email,
