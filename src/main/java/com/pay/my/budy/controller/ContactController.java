@@ -3,10 +3,12 @@ package com.pay.my.budy.controller;
 import java.security.Principal;
 import java.util.List;
 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -62,7 +64,13 @@ public class ContactController {
 	 * @return, nous renvoi la vue apres que toutes les operation ce soit deroulé.
 	 */
 	@PostMapping(value = "/contact")
-	public String postContactForm(FriendDTO friendDTO, Principal principal) {
+	public String postContactForm(@Valid FriendDTO friendDTO, Principal principal, BindingResult result) {
+		
+		if (result.hasErrors()) {
+			
+			return "/layouts/contact";
+			
+		}
 		
 		friendShipServices.addConnection(friendDTO.getUsername(), principal.getName());
 
