@@ -13,6 +13,15 @@ import com.pay.my.budy.model.User;
 import com.pay.my.budy.repository.RelationShipRepository;
 import com.pay.my.budy.repository.UserRepository;
 
+
+/**
+ * <b>Voici la classe RelationShipServices </b>
+ * 
+ *
+ * 
+ * @author Stevens
+ * @version beta
+ */
 @Service
 public class RelationShipServices {
 	
@@ -25,6 +34,14 @@ public class RelationShipServices {
 	@Autowired
 	RelationShipRepository relationRepository;
 	
+	
+	/**
+	 * 
+	 * @param username, on retrouve l'utilisateur qui a effectué la requete 
+	 * 
+	 * <p>On traite sa liste d'amis pour afficher leurs noms et info on les ajoute dans un friendDTO qui sera ajouté a une listfriendDTO si plusieurs amis puis renvoyer
+	 * @return listDtoFriend, une liste d'amis
+	 */
 	public List<UserDTO> getConnections(String username) {
 		
 		User user = userRepository.findByusername(username);
@@ -60,7 +77,11 @@ public class RelationShipServices {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @param email, l'email a ajouter on verifiera qu'elle n'existe pas deja en base si ce n'est pas le cas on recupere l'id et on l'ajoute 
+	 * @param username, nous permet de retrouver l'utilisateur qui ajoute un ami
+	 */
 	public void addConnection(String email, String username) {
 		
 		User user = null;

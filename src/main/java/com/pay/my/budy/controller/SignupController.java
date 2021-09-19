@@ -12,6 +12,15 @@ import com.pay.my.budy.dto.UserSignupDTO;
 import com.pay.my.budy.repository.UserRepository;
 import com.pay.my.budy.service.UserServices;
 
+
+/**
+ * <b>Voici la classe SignupController  </b>
+ * 
+ *
+ * 
+ * @author Stevens
+ * @version beta
+ */
 @Controller
 public class SignupController {
 	
@@ -26,6 +35,11 @@ public class SignupController {
 	UserServices userService;
 	
 	
+	/**
+	 * 
+	 * <p>Affichage de la vue du formulaire d'incription
+	 * @return, la vue 
+	 */
 	@GetMapping(value = "/signup")
 	public String signupController() {
 		
@@ -33,6 +47,12 @@ public class SignupController {
 	}
 	
 	
+	/**
+	 * <p> Permet au client de s'inscrire.
+	 * @param userSignupDTO, Les infos utilisateur envoyé par le client afin d'etre traité
+	 * @param result, affichage des erreurs client a l'ecran lors du remplissage du formulaire.
+	 * @return, la vue 
+	 */
 	@PostMapping(value = "/signup")
 	public String postSignupForm(UserSignupDTO userSignupDTO, BindingResult result) {
 		
