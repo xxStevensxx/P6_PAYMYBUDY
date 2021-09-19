@@ -110,11 +110,12 @@ public class TransfertServices {
 				transac.setRecipient(userReciep.getId());
 				transac.setFk_iduser(userWhopay.getId());
 				transac.setDate(dayPayment);
+				transac.setLabel(transfertDTO.getLabel());
 				
 				listBankaccount.add(bankReciep);
 				listBankaccount.add(bankWhoPay);
 				
-				throw new Exception("just for test");
+//				throw new Exception("just for test");
 
 	
 			}

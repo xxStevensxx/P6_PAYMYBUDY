@@ -1,10 +1,11 @@
 <!-- Contact  -->
-<form th:fragment="add_connection" th:action="@{/contact}" method="post" class="container">
+a<form th:fragment="add_connection" th:action="@{/contact}"  method="post" class="container">
   <div class="mb-3">
       <h5 class="card-title">Ajouter vos contacts via leurs email</h5>
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input name="username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-<!--     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <input name="username" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required="required">
+<!--     <div th:if="${#fields.hasErrors('username')}" class="alert alert-danger" role="alert">Attention</div>
+ --><!--     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
  -->  </div>
     <div class="alert alert-danger" role="alert" th:if="${param.error}" >Utilisateur non trouvé</div>
   <button type="submit" class="btn btn-primary">Add Connection</button>
