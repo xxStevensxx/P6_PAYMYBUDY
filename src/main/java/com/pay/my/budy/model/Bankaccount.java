@@ -32,6 +32,15 @@ public class Bankaccount {
 
 	@Column(name = "moneyavailable")
 	private Double moneyAvailable;
+	
+	public Bankaccount() {}
+	public Bankaccount(String iban, double money, int id_user) {
+		
+		this.iban = iban;
+		this.moneyAvailable = money;
+		this.idUser = id_user;
+		
+	}
 
 	public int getIdAccount() {
 		return idAccount;

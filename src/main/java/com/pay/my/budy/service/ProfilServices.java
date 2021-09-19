@@ -5,9 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.pay.my.budy.dto.Mapper;
 import com.pay.my.budy.dto.UserDTO;
-import com.pay.my.budy.mapper.UserMapper;
+import com.pay.my.budy.mapper.Mapper;
 import com.pay.my.budy.model.Bankaccount;
 import com.pay.my.budy.model.User;
 import com.pay.my.budy.repository.BankaccountRepository;

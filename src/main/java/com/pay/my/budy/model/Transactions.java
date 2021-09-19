@@ -1,7 +1,6 @@
 package com.pay.my.budy.model;
 
 import java.time.LocalDate;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +13,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.stereotype.Component;
 
-import com.pay.my.budy.dto.TransactionDTO;
 
 @Component
 @Entity
