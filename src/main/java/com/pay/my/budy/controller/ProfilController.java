@@ -17,7 +17,14 @@ import com.pay.my.budy.repository.UserRepository;
 import com.pay.my.budy.service.ProfilServices;
 
 
-
+/**
+ * <b>Voici la classe ProfilController  </b>
+ * 
+ *
+ * 
+ * @author Stevens
+ * @version beta
+ */
 @Controller
 public class ProfilController {
 	
@@ -28,6 +35,14 @@ public class ProfilController {
 	UserRepository userRepository;
 	
 	
+	
+	/**
+	 * 
+	 * On recupere les infos users via la couche service le tout est mappé en DTO puis envoé dans le model qui affichera les infos dans la vue.
+	 * @param principal, ce parametre nous permet de savoir qui utilise l'application grace a son interface qui nous retourne le nom ou l'id
+	 * @param model, ce param envoi l'objet desiré avec un nom que l'ont peux definir dans notre template jsp, html ou autre.
+	 * @return, la vue html
+	 */
 	@GetMapping(value = "/profil")
 	public String profilController (Principal principal, Model model) {
 		
@@ -37,7 +52,14 @@ public class ProfilController {
 			return "/layouts/profil";
 	}
 	
-	
+	/**
+	 * 
+	 * <p> C'est ici les info utilisateurs a mettre a jour seront envoyé à la couche services puis traité.
+	 * @param userDTO, Les infos utilisateur envoyé par le client afin d'etre traité
+	 * @param principal, ce parametre nous permet de savoir qui utilise l'application grace a son interface qui nous retourne le nom ou l'id
+	 * @param result, affichage des erreurs client a l'ecran lors du remplissage du formulaire.
+	 * @return "/layouts/profil", la vue qui sera appeler apres le process
+	 */
 	@PostMapping(value = "/profil")
 	public String postProfilForm(@ModelAttribute("userDTO") UserDTO userDTO, Principal principal, BindingResult result) {
 							

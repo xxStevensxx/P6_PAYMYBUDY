@@ -18,8 +18,16 @@ import com.pay.my.budy.repository.BankaccountRepository;
 import com.pay.my.budy.repository.PaymentRepository;
 import com.pay.my.budy.repository.UserRepository;
 
-
+/**
+ * <b>Voici la classe TransfertServices </b>
+ * 
+ *
+ * 
+ * @author Stevens
+ * @version beta
+ */
 @Service
+@Transactional(rollbackOn = Exception.class)
 public class TransfertServices {
 	
 	@Autowired
@@ -40,6 +48,12 @@ public class TransfertServices {
 	@Autowired
 	Mapper mapper;
 	
+	
+	/**
+	 * 
+	 * @param username nous permet de retrouver l'utilisateur en cours puis de mapper ses info en userDTO
+	 * @return userDTO, retourne notre DTO
+	 */
 	public UserDTO DisplayInfotransfert(String username) {
 		
 		UserDTO userDTO = mapper.toDTO(userRepository.findByusername(username));	
@@ -51,9 +65,13 @@ public class TransfertServices {
 	}
 	
 	
-	
-	@Transactional
-	public UserDTO transfertBis(String username, UserDTO transfertDTO) {
+	/**
+	 * 
+	 * @param username, l'utilisateur qui paye
+	 * @param transfertDTO les infos types montant a payer et qui payer ce retrouve dans le transfert DTO
+	 * @return  mapper.toDTO(userWhopay);, nous renvoi les infos a jour apres paiement pour la vue.
+	 */
+	public UserDTO transfertBis(String username, UserDTO transfertDTO) throws Exception {
 		
 		
 		User userWhopay = userRepository.findByusername(username);
@@ -72,6 +90,7 @@ public class TransfertServices {
 
 			if (transfertDTO.getAmount() <= userWhopay.getBankaccount().get(i).getMoneyAvailable()) {
 				
+				 
 				double sommeLessFivePercent = calcul.fivePercent(transfertDTO.getAmount());
 				LocalDate dayPayment = LocalDate.now();
 				
@@ -95,6 +114,8 @@ public class TransfertServices {
 				listBankaccount.add(bankReciep);
 				listBankaccount.add(bankWhoPay);
 				
+				throw new Exception("just for test");
+
 	
 			}
 			
@@ -102,7 +123,7 @@ public class TransfertServices {
 					bankRepository.saveAll(listBankaccount);
 			
 		}
-		return mapper.toDTO(userWhopay);
+			return mapper.toDTO(userWhopay);
 		
 		
 	}

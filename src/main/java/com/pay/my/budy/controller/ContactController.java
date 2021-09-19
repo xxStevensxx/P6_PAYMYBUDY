@@ -15,6 +15,15 @@ import com.pay.my.budy.dto.UserDTO;
 import com.pay.my.budy.repository.UserRepository;
 import com.pay.my.budy.service.RelationShipServices;
 
+
+/**
+ * <b>Voici la classe ContactController  </b>
+ * 
+ * <p> C'est le controller qui enverra nos data vers la couche service
+ * 
+ * @author Stevens
+ * @version beta
+ */
 @Controller
 public class ContactController {
 	
@@ -25,6 +34,16 @@ public class ContactController {
 	@Autowired
 	RelationShipServices friendShipServices;
 	
+	
+	
+	
+	/**
+	 * 
+	 * @param principal, ce parametre nous permet de savoir qui utilise l'application grace a son interface qui nous retourne le nom ou l'id
+	 * @param model, ce param envoi l'objet desiré avec un nom que l'ont peux definir dans notre template jsp, html ou autre.
+	 * @return, nous renvoi la vue apres que toutes les operation ce soit deroulé.
+	 * 
+	 */
 	@GetMapping(value = "/contact")
 	public String contactController(Principal principal, Model model) {
 		
@@ -35,6 +54,13 @@ public class ContactController {
 	}
 	
 	
+	
+	/**
+	 * 
+	 * @param friendDTO, les informations soumises par le client sont des DTO qui seront  mappé puis puis traités plus tard.  
+	 * @param principal, ce param envoi l'objet desiré avec un nom que l'ont peux definir dans notre template jsp, html ou autre.
+	 * @return, nous renvoi la vue apres que toutes les operation ce soit deroulé.
+	 */
 	@PostMapping(value = "/contact")
 	public String postContactForm(FriendDTO friendDTO, Principal principal) {
 		

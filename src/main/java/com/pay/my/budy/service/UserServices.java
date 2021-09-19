@@ -17,6 +17,14 @@ import com.pay.my.budy.repository.AuthorityRepository;
 import com.pay.my.budy.repository.BankaccountRepository;
 import com.pay.my.budy.repository.UserRepository;
 
+/**
+ * <b>Voici la classe UserServices </b>
+ * 
+ *
+ * 
+ * @author Stevens
+ * @version beta
+ */
 @Service
 public class UserServices {
 	
@@ -36,6 +44,10 @@ public class UserServices {
 	Mapper mapper;
 		
 	
+	/**
+	 * 
+	 * @param userSignupDTO, l'objet  userSignupDTO qui sera mappé en user afin de creer ses infos et ouvrir son compte PAymybudy automatiquement
+	 */
 	public void signup(UserSignupDTO userSignupDTO) {	
 		
 		User user = mapper.toUser(userSignupDTO);
