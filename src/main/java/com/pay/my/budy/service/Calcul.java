@@ -22,7 +22,10 @@ public class Calcul {
 	 */
 	public double fivePercent(double amount) {
 		
-		return amount * 0.5;
+		double result = amount * 0.05;
+		
+		
+		return amount - result;
 		
 	}
 	
