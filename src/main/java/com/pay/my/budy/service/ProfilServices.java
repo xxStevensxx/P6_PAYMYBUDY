@@ -40,8 +40,9 @@ public class ProfilServices {
 	 */
 	public void profil(String username, UserDTO userDTO) {
 		
-		User user = mapper.toUser(userDTO);			
-		List<Bankaccount> bank = user.getBankaccount();
+		User user = mapper.toUser(userDTO);	
+		List<Bankaccount> banks = user.getBankaccount();
+		Bankaccount bank = new Bankaccount();
 		User userFindInRepository = userRepository.findByusername(username);
 			
 		
@@ -52,10 +53,20 @@ public class ProfilServices {
 		if (user.getBirthdate() != null) {userFindInRepository.setBirthdate(user.getBirthdate());}
 		
 		if (user.getAddress().trim() != "") {userFindInRepository.setAddress(user.getAddress());}
-
-				
+		
+		for (int i = 0; i < banks.size(); i++) {
+			
+			bank.setIdAccount(userFindInRepository.getBankaccount().get(i).getIdAccount());
+			bank.setIdUser(userFindInRepository.getId());
+			bank.setIban(userDTO.getIban());
+			bank.setDate(userFindInRepository.getBankaccount().get(i).getDate());
+			bank.setMoneyAvailable(userFindInRepository.getBankaccount().get(i).getMoneyAvailable());
+			
+			
+		}
+		
 			userRepository.save(userFindInRepository);
-			bankRepository.saveAll(bank);
+			bankRepository.save(bank);
 		
 	}
 	

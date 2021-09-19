@@ -31,7 +31,7 @@
   </div>
   <div id="address" class="mb-3">
   <label for="iban" class="form-label">Iban</label>
-	<div id="iban" class="alert alert-info" role="alert" align="center"><span th:text="${bank.iban}"></span> €</div>
+    <input th:text="${bank.iban}" th:field="${userDTO.iban}" class="form-control" id="exampleFormControlInput1" placeholder="FR76**********">
   </div>
   </div>
 </div>
