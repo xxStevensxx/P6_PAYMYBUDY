@@ -1,5 +1,0 @@
-<!-- Session info User  -->
-<div th:fragment="session">
-<div class="alert alert-primary" role="alert" th:if="${email != null}">Vous etes connecté en tant que: <span class="fw-bold" th:text=${email}></span></div>
-<div class="alert alert-warning" role="alert" th:if="${email != null && session.FirstName == null}">Pensez à renseigner vos infos personnels</div>
-</div>
