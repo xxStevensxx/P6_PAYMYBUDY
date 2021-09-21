@@ -22,4 +22,4 @@ Modele physique de donnée :
 
 Diagramme UML : 
 
-![diagramme](https://user-images.githubusercontent.com/29457062/125112494-84804c80-e0e7-11eb-8926-010f2236f7ac.png)
+![PayMyBudy_UML](https://user-images.githubusercontent.com/29457062/134147700-ee628a7b-9ce3-40e8-baea-b8f14f98c255.png)
