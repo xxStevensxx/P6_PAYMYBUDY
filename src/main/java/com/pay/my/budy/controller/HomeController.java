@@ -25,7 +25,6 @@ public class HomeController {
 		
 		model.addAttribute("session_name", principal.getName());		
 		session.setAttribute("session_name", model.getAttribute("session_name"));
-		System.err.println(session.getAttribute("session_name"));
 		
 			return "/layouts/index";
 	}

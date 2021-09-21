@@ -12,6 +12,8 @@ import com.pay.my.budy.model.User;
 import com.pay.my.budy.repository.BankaccountRepository;
 import com.pay.my.budy.repository.UserRepository;
 
+
+
 /**
  * <b>Voici la classe ProfilServices </b>
  * 
@@ -54,6 +56,9 @@ public class ProfilServices {
 		if (user.getBirthdate() != null) {userFindInRepository.setBirthdate(user.getBirthdate());}
 		
 		if (user.getAddress().trim() != "") {userFindInRepository.setAddress(user.getAddress());}
+		
+		if (user.getAddress().trim() != "") {userFindInRepository.setAddress(user.getAddress());}
+
 		
 		for (int i = 0; i < banks.size(); i++) {
 			

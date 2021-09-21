@@ -41,9 +41,7 @@ public class TransfertController {
 		
 		
 		UserDTO transfertDTO = transfertServices.DisplayInfotransfert(principal.getName());
-		
-		System.err.println(transfertDTO);
-		
+				
 		model.addAttribute("transfertDTO", transfertDTO);
 		
 			return "/layouts/transfert";
@@ -61,7 +59,6 @@ public class TransfertController {
 	@PostMapping(value = "/transfert")
 	public String transferMoney(Principal principal, UserDTO transfertDTO, Model model) throws Exception {
 		
-		System.err.println(transfertDTO);
 		UserDTO userDTO = transfertServices.transfertBis(principal.getName(), transfertDTO);
 		model.addAttribute("transfertDTO", userDTO);
 
