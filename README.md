@@ -4,15 +4,22 @@ Verifier le java build path dans votre IDE click droit sur le projet -> preperti
 
 Verifier la version Java Compiler click droit sur le projet -> preperties -> java build compiler -> JDK compliance, cela doit etre la version 11.
 
-Creer une bdd sur workbench avec exactement ce nom la : "paymybudy".
+(Si vous ne pouvez pas changer de version de java mettez à jour le build path et le compiler du projet avec votre version de java).
 
-Lancer le script : script.sql du dossier dossier ressources, sur la bdd paymybudy selectionner UTF-8 et run.
+Alez sur workbench et lancer le script SQL qui ce trouve dans src/main/ressources/script.sql
 
 Compiler l'application.
 
 Enjoy !!!
 
-Diagramme UML du projet
+Modele physique de donnée : 
 
 
-![diagramme](https://user-images.githubusercontent.com/29457062/125112494-84804c80-e0e7-11eb-8926-010f2236f7ac.png)
+
+![modele_physique_donnee](https://user-images.githubusercontent.com/29457062/134142011-4c954be6-5205-4781-ada9-6d5d6f27ffbd.png)
+
+
+
+Diagramme UML : 
+
+![PayMyBudy_UML](https://user-images.githubusercontent.com/29457062/134147700-ee628a7b-9ce3-40e8-baea-b8f14f98c255.png)
