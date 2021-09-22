@@ -2,32 +2,36 @@
 <!-- Login  -->
 <form th:fragment="signin" th:action="@{/signin}" th:objects="${user}" method="post">
 <div class="container">
-<div class="formBox">
+
+<div class="formBox" style="border: solid 7px; border-color: #D6D6D6; border-radius: 25px; padding: 3%; width: 40%; margin: 0 auto; margin-top: 12%">
 <div>
-<h2 id="pmBudy2">Pay My Budy</h2>
+<h2  id="pmBudy2" class="text-center" style="background-color: #89C34B; border-radius:15px 15px 15px 15px ;color: white; padding: 1%;width: 65%; height: 75% ;position: relative; left: 20%; font-size: 1.5em" >Pay My Budy</h2>
 </div>
 <div id="email" class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <label style="margin-top: 4%;" for="exampleFormControlInput1" class="form-label">Email address</label>
   <input name="email" oninput="this.value = this.value.toLowerCase()"class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
 </div>
   <div id="psw" class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
     <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
   </div>
+  <div >
   <div class="form-check">
   <input class="form-check-input" type="checkbox" id="remember" name="remember-me">
   <label class="form-check-label" for="remember">Remember me</label>
 </div>
     <div th:if="${param.error}" align="center" class="alert alert-danger" role="alert"><span class="fw_bold">Email ou mot de passe incorrect</span></div>  
 <div class="btn-container">
-    <button class="btn btn-primary" type="submit">Login</button>
+    <button style="position: relative; left: 40%" class="btn btn-primary" type="submit">Login</button>
 </div>
-    <div>
-    	<p class="fw-bold">New on pay My budy ? </p>
-          <a class="nav-link" href="/signup">Sign-Up</a>
     </div>
+    <div>
+    	<p style="margin-bottom: 0; margin-top: 8%" class="fw-bold">New on pay My budy ? </p>
+          <a class="nav-link" href="/signup">Sign-Up</a>
+    </div>    
   </div>
-</div>
+  </div>
+
 </form>
     
 
