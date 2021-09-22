@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `authorities` (
 --
 
 INSERT INTO `authorities` (`user_id`, `username`, `authority`) VALUES
-(1, 'test@test', 'USER');
+(1, 'test@test.com', 'USER');
 
 
 -- --------------------------------------------------------
