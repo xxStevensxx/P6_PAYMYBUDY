@@ -1,5 +1,5 @@
 <!-- profil  -->
-<form th:fragment="profil" th:action="@{/profil}" th:object="${userDTO}" method="post">
+<form  th:fragment="profil" th:action="@{/profil}" th:object="${userDTO}" method="post">
 <div class="container">
 <div class="formBox">
 <div>
@@ -38,7 +38,7 @@
 </div>
        <div align="center"  class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('global')}" th:each="err : ${#fields.errors('global')}" th:text="${err}"></div>
 <div class="btn-container">
-    <button class="btn btn-primary" type="submit">Mettre à jour</button>
+    <button style="margin-bottom: 5%" class="btn btn-primary" type="submit">Mettre à jour</button>
 </div>
 </div>
 </div>
