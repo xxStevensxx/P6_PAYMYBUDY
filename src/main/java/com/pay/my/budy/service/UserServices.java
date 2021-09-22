@@ -65,7 +65,7 @@ public class UserServices {
 			
 			Bankaccount bank = new Bankaccount();
 			bank.setIdUser(userToPersist.getId());
-			bank.setMoneyAvailable(0.0);
+			bank.setMoneyAvailable(20.0);
 			
 			bankRepository.save(bank);	
 			
