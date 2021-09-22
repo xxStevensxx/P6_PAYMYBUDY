@@ -63,7 +63,7 @@ public class TransfertController {
 		model.addAttribute("transfertDTO", userDTO);
 
 		
-			return "/layouts/transfert";
+			return "/layouts/transfert_success";
 
 		
 	}

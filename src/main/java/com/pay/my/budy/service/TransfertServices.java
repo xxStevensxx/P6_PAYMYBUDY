@@ -18,6 +18,10 @@ import com.pay.my.budy.repository.BankaccountRepository;
 import com.pay.my.budy.repository.PaymentRepository;
 import com.pay.my.budy.repository.UserRepository;
 
+
+
+
+
 /**
  * <b>Voici la classe TransfertServices </b>
  * 
@@ -57,9 +61,7 @@ public class TransfertServices {
 	public UserDTO DisplayInfotransfert(String username) {
 		
 		UserDTO userDTO = mapper.toDTO(userRepository.findByusername(username));	
-		
-		System.err.println(userDTO);
-				
+						
 				return userDTO;
 		
 	}

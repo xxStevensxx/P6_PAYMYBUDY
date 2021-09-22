@@ -64,7 +64,7 @@ public class ProfilController {
 		UserDTO newUserDTO = profilServices.profil(principal.getName(), userDTO);
 		model.addAttribute("userDTO",newUserDTO);
 
-			return "/layouts/profil"; 
+			return "/layouts/profil_success"; 
 
 	}
 

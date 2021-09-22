@@ -74,7 +74,7 @@ public class ContactController {
 		
 		friendShipServices.addConnection(friendDTO.getUsername(), principal.getName());
 
-			return "/layouts/contact";
+			return "/layouts/add_friend_success";
 		
 	}
 
