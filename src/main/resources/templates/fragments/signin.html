@@ -8,8 +8,8 @@
 <h2  id="pmBudy2" class="text-center" style="background-color: #89C34B; border-radius:15px 15px 15px 15px ;color: white; padding: 1%;width: 65%; height: 75% ;position: relative; left: 20%; font-size: 1.5em" >Pay My Budy</h2>
 </div>
 <div id="email" class="mb-3">
-  <label style="margin-top: 4%;" for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input name="email" oninput="this.value = this.value.toLowerCase()"class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
+  <label style="margin-top: 4%;" for="exampleFormControlInput1" class="form-label" >Email address</label>
+  <input name="email" oninput="this.value = this.value.toLowerCase()"class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$" type="email" required>
 </div>
   <div id="psw" class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>

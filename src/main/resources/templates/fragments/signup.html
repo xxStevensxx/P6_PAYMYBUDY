@@ -7,7 +7,7 @@
 </div>
 <div id="email" class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input name="username" oninput="this.value = this.value.toLowerCase()" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  <input name="username" oninput="this.value = this.value.toLowerCase()"  class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$" type="email" required>
 </div>
  <div id="psw" class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
