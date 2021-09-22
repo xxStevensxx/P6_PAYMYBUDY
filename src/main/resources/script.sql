@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`username`, `name`, `firstname`, `birthdate`, `address`, `password`) VALUES
-('test@test', 'test', 'test-test', NULL, 'rue de test', '$2y$10$jWvX8H.8XzHZkfZdP5pOY.1jXkH2HsLPCMTnINYCTtYL76F0saeHS');
+('test@test.com', 'test', 'test-test', NULL, 'rue de test', '$2y$10$jWvX8H.8XzHZkfZdP5pOY.1jXkH2HsLPCMTnINYCTtYL76F0saeHS');
 
 -- --------------------------------------------------------
 
