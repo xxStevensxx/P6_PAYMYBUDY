@@ -31,11 +31,11 @@
 
 #pmBudy2 {
 	background-color: #89C34B;
-	color: white;
-	text-align: center;
+	color: white !important;
+	text-align: center !important;
 	font-size: 1em !important;
 	padding: 2%;
-	width: 15%;
+	width: 100%;
 	margin: 0 auto;
 	border-radius: 10px 10px 10px 10px !important;
 }
