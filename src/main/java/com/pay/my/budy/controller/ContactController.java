@@ -66,15 +66,10 @@ public class ContactController {
 	@PostMapping(value = "/contact")
 	public String postContactForm(@Valid FriendDTO friendDTO, Principal principal, BindingResult result) {
 		
-		if (result.hasErrors()) {
-			
-			return "/layouts/contact";
-			
-		}
 		
-		friendShipServices.addConnection(friendDTO.getUsername(), principal.getName());
+		String url = friendShipServices.addConnectionBis(friendDTO.getUsername(), principal.getName());
 
-			return "/layouts/add_friend_success";
+			return url;
 		
 	}
 

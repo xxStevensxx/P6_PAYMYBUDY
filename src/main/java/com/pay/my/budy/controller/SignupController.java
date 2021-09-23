@@ -56,9 +56,9 @@ public class SignupController {
 	@PostMapping(value = "/signup")
 	public String postSignupForm(UserSignupDTO userSignupDTO, BindingResult result) {
 		
-			userService.signup(userSignupDTO);
+			String url = userService.signup(userSignupDTO);
 	
-				return "/layouts/signin";
+				return url;
 	}
 	
 

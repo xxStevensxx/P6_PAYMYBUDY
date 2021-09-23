@@ -6,8 +6,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.stereotype.Component;
 
-import com.sun.istack.NotNull;
-
 import java.util.List;
 
 import javax.validation.constraints.NotBlank;
@@ -26,34 +24,32 @@ public class UserDTO {
 	private String friend;
 	private double amount;
 	private String label;
-	
-	public String getLabel() {
-		return label;
-	}
-	public void setLabel(String label) {
-		this.label = label;
-	}
-	@NotNull
 	@NotBlank(message = "ce champs ne doit pas etre vide")
 	private String iban;
-	
-	public String getIban() {
-		return iban;
-	}
-	public void setIban(String iban) {
-		this.iban = iban;
-	}
 	private List<BankaccountDTO> bankaccounts;
 	private List<FriendDTO> friends;	
 	private List<TransactionDTO> transactions;
-	
-	
 	
 	public UserDTO() {}
 	public UserDTO(String username) {}
 	public UserDTO(String name, String firstname, String address, String username, LocalDate birthdate) {}
 	
+		
+	public String getLabel() {
+		return label;
+	}
 	
+	public void setLabel(String label) {
+		this.label = label;
+	}
+	
+	public String getIban() {
+		return iban;
+	}
+	
+	public void setIban(String iban) {
+		this.iban = iban;
+	}
 	
 	public String getName() {
 		return name;
