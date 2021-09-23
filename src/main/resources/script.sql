@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `transactions` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50),
+  `username` varchar(50) UNIQUE,
   `name` varchar(50),
   `firstname` varchar(75),
   `email` varchar(100),

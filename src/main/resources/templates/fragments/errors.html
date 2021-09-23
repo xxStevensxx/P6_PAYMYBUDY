@@ -1,0 +1,30 @@
+<div th:fragment="error_email" class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Erreur !</h4>
+  <p>Cet email existe déjà</p>
+  <hr>
+  <a th:href="@{/signup}" class="alert-link">Retour à l'inscription</p>
+</div>
+
+
+
+<div th:fragment="friend_exist" class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Erreur !</h4>
+  <p>Vous etes deja ami</p>
+  <hr>
+  <a th:href="@{/contact}" class="alert-link">Retour à la page contact</p>
+</div>
+
+<div th:fragment="error_friend" class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Erreur !</h4>
+  <p>Cet ami n'est pas inscrit sur l'app</p>
+  <hr>
+  <a th:href="@{/contact}" class="alert-link">Retour à la page contact</p>
+</div>
+
+
+<div th:fragment="error_friend_not_exist" class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Erreur !</h4>
+  <p>Cet ami n'est pas inscrit sur l'apps</p>
+  <hr>
+  <a th:href="@{/contact}" class="alert-link">Retour au contacts</p>
+</div>

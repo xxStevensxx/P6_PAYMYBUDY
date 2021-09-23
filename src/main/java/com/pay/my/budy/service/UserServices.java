@@ -48,7 +48,7 @@ public class UserServices {
 	 * 
 	 * @param userSignupDTO, l'objet  userSignupDTO qui sera mappé en user afin de creer ses infos et ouvrir son compte PAymybudy automatiquement
 	 */
-	public void signup(UserSignupDTO userSignupDTO) {	
+	public String signup(UserSignupDTO userSignupDTO) {	
 		
 		
 		User user = mapper.toUser(userSignupDTO);
@@ -65,7 +65,7 @@ public class UserServices {
 			
 			Bankaccount bank = new Bankaccount();
 			bank.setIdUser(userToPersist.getId());
-			bank.setMoneyAvailable(20.0);
+			bank.setMoneyAvailable(0.0);
 			
 			bankRepository.save(bank);	
 			
@@ -76,16 +76,13 @@ public class UserServices {
 			
 			authRepository.save(authority);
 			
+				return "/layouts/signin";
+			
 			
 		}
 	
-
+			return "/layouts/add_errors";
 		
 	}
-	
-	
-	
-	
-	
 	
 }
