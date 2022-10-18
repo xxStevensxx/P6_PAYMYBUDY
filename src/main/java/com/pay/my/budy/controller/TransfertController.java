@@ -59,11 +59,19 @@ public class TransfertController {
 	@PostMapping(value = "/transfert")
 	public String transferMoney(Principal principal, UserDTO transfertDTO, Model model) throws Exception {
 		
-		UserDTO userDTO = transfertServices.transfertBis(principal.getName(), transfertDTO);
-		model.addAttribute("transfertDTO", userDTO);
-
 		
-			return "/layouts/transfert_success";
+		Boolean check = transfertServices.checkAmount(principal.getName(), transfertDTO);
+
+		if (check == true) {
+			
+			UserDTO userDTO = transfertServices.transfertBis(principal.getName(), transfertDTO);
+			model.addAttribute("transfertDTO", userDTO);
+			
+				return "/layouts/transfert_success";
+		}else {
+			
+				return "/layouts/transfert_error";
+		}
 
 		
 	}
